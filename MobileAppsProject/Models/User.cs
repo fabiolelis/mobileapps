@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite.Net.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace MobileAppsProject.Models
 {
+    [Table("User")]
+
     class User
     {
+        private int _userID;
+
         private string _name;
         private int _age;
         private int _height; //cm
@@ -25,6 +30,21 @@ namespace MobileAppsProject.Models
         private int _ref_sugar = 90;
         private int _ref_salt = 6;
 
+        [Column("UserID")]
+        [PrimaryKey]
+        [NotNull]
+        [AutoIncrement]
+        public int UserID
+        {
+            get
+            {
+                return _userID;
+            }
+            set
+            {
+                _userID = value;
+            }
+        }
         public string Name
         {
             get

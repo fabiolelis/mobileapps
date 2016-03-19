@@ -132,17 +132,19 @@ namespace MobileAppsProject.MobileAppsProject_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
+            _typeNameTable = new string[5];
             _typeNameTable[0] = "MobileAppsProject.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "MobileAppsProject.UserEdit";
+            _typeNameTable[3] = "MobileAppsProject.Pages.BlankPage1";
+            _typeNameTable[4] = "MobileAppsProject.Pages.UserEdit";
 
-            _typeTable = new global::System.Type[4];
+            _typeTable = new global::System.Type[5];
             _typeTable[0] = typeof(global::MobileAppsProject.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::MobileAppsProject.UserEdit);
+            _typeTable[3] = typeof(global::MobileAppsProject.Pages.BlankPage1);
+            _typeTable[4] = typeof(global::MobileAppsProject.Pages.UserEdit);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -178,7 +180,8 @@ namespace MobileAppsProject.MobileAppsProject_XamlTypeInfo
         }
 
         private object Activate_0_MainPage() { return new global::MobileAppsProject.MainPage(); }
-        private object Activate_3_UserEdit() { return new global::MobileAppsProject.UserEdit(); }
+        private object Activate_3_BlankPage1() { return new global::MobileAppsProject.Pages.BlankPage1(); }
+        private object Activate_4_UserEdit() { return new global::MobileAppsProject.Pages.UserEdit(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -205,9 +208,16 @@ namespace MobileAppsProject.MobileAppsProject_XamlTypeInfo
                 xamlType = new global::MobileAppsProject.MobileAppsProject_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  MobileAppsProject.UserEdit
+            case 3:   //  MobileAppsProject.Pages.BlankPage1
                 userType = new global::MobileAppsProject.MobileAppsProject_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_UserEdit;
+                userType.Activator = Activate_3_BlankPage1;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  MobileAppsProject.Pages.UserEdit
+                userType = new global::MobileAppsProject.MobileAppsProject_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_UserEdit;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

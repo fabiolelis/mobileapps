@@ -51,6 +51,11 @@ namespace MobileAppsProject.Pages
             UserDB udb = new UserDB(user);
             udb.save();
 
+            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values["userID"] = user.UserID;
+
+            Frame.Navigate(typeof(MainPage));
+
 
         }
     }

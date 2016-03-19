@@ -1,45 +1,62 @@
 ﻿<Page
-    x:Class="MobileAppsProject.Pages.UserEdit"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MobileAppsProject.Pages"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+	x:Class="MobileAppsProject.Pages.UserEdit"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="using:MobileAppsProject.Pages"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Margin="50,50,50,10" >
-            <TextBlock  TextWrapping="Wrap" Text="Name: "/>
-            <TextBox x:Name="txtName" TextWrapping="Wrap" />
-            <TextBlock  TextWrapping="Wrap" Text="Age: " />
-            <TextBox x:Name="txtAge" TextWrapping="Wrap" />
-            <TextBlock  TextWrapping="Wrap" Text="Height: "/>
-            <TextBox x:Name="txtHeight" TextWrapping="Wrap" />
-            <TextBlock  TextWrapping="Wrap" Text="Weight " />
-            <TextBox x:Name="txtWeight" TextWrapping="Wrap" />
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+			<Pivot>
 
-            <TextBlock  TextWrapping="Wrap" Text="Wake up time " />
-            <TimePicker x:Name="timeWakeUpTime"  />
-            <TextBlock  TextWrapping="Wrap" Text="Lunch time " />
-            <TimePicker x:Name="timeLunchUpTime"  />
-            <TextBlock  TextWrapping="Wrap" Text="Dinner time " />
-            <TimePicker x:Name="timeDinnerUpTime" />
-            <TextBlock  TextWrapping="Wrap" Text="Bed time " />
-            <TimePicker x:Name="timeBedUpTime"  />
+				<PivotItem Header="You">
+					<Grid>
+					<StackPanel Margin="50,50,50,10" >
 
-            <TextBlock  TextWrapping="Wrap" Text="Energy " />
-            <TextBox x:Name="txtEnergy" TextWrapping="Wrap" />
-            <TextBlock  TextWrapping="Wrap" Text="Fat " />
-            <TextBox x:Name="txtFat" TextWrapping="Wrap" />
-            <TextBlock  TextWrapping="Wrap" Text="Saturates " />
-            <TextBox x:Name="txtSaturates" TextWrapping="Wrap" />
-            <TextBlock  TextWrapping="Wrap" Text="Sugar " />
-            <TextBox x:Name="txtSugar" TextWrapping="Wrap" />
-            <TextBlock  TextWrapping="Wrap" Text="Salt " />
-            <TextBox x:Name="txtSalt" TextWrapping="Wrap" />
-
-            <Button x:Name="SaveBtn"  Click="SaveBtn_Click">Save</Button>
-
-        </StackPanel>
-    </Grid>
+						<TextBlock  TextWrapping="Wrap" Text="Name: "/>
+						<TextBox x:Name="txtName" TextWrapping="Wrap" />
+						<TextBlock  TextWrapping="Wrap" Text="Age: " />
+						<TextBox x:Name="txtAge" TextWrapping="Wrap" />
+						<TextBlock  TextWrapping="Wrap" Text="Height: "/>
+						<TextBox x:Name="txtHeight" TextWrapping="Wrap" />
+						<TextBlock  TextWrapping="Wrap" Text="Weight " />
+						<TextBox x:Name="txtWeight" TextWrapping="Wrap" />
+					</StackPanel>
+				</Grid>
+				</PivotItem>
+			<PivotItem Header="Your times">
+				<Grid>
+					<StackPanel>
+						<TextBlock  TextWrapping="Wrap" Text="Wake up time " />
+						<TimePicker x:Name="timeWakeUpTime"  />
+						<TextBlock  TextWrapping="Wrap" Text="Lunch time " />
+						<TimePicker x:Name="timeLunchUpTime"  />
+						<TextBlock  TextWrapping="Wrap" Text="Dinner time " />
+						<TimePicker x:Name="timeDinnerUpTime" />
+						<TextBlock  TextWrapping="Wrap" Text="Bed time " />
+						<TimePicker x:Name="timeBedUpTime"  />
+					</StackPanel>
+				</Grid>
+					</PivotItem>
+					<PivotItem Header="Your diet">
+						<Grid>
+					<StackPanel>
+						<TextBlock  TextWrapping="Wrap" Text="Energy (kcal)" />
+						<TextBox x:Name="txtEnergy" TextWrapping="Wrap" Text="2000" />
+						<TextBlock  TextWrapping="Wrap" Text="Fat (g)" />
+						<TextBox x:Name="txtFat" TextWrapping="Wrap" Text="70"/>
+						<TextBlock  TextWrapping="Wrap" Text="Saturates (g) " />
+						<TextBox x:Name="txtSaturates" TextWrapping="Wrap" Text="20" />
+						<TextBlock  TextWrapping="Wrap" Text="Sugar (g) " />
+						<TextBox x:Name="txtSugar" TextWrapping="Wrap" Text="90"/>
+						<TextBlock  TextWrapping="Wrap" Text="Salt (g) " />
+						<TextBox x:Name="txtSalt" TextWrapping="Wrap" Text="6" />
+						<Button x:Name="SaveBtn"  Click="SaveBtn_Click">Save</Button>
+					</StackPanel>
+				</Grid>
+				</PivotItem>
+			</Pivot>
+			
+	</Grid>
 </Page>

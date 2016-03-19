@@ -6,20 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    ScrollViewer.HorizontalScrollMode="Enabled"
     >
-    <Page.Resources>
-        <DataTemplate x:Key="PivotHeader">
-            <StackPanel>
-                <TextBlock FontSize="18" Foreground="Blue" Text="{Binding}" />
-            </StackPanel>
-        </DataTemplate>
-    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
+        <StackPanel Margin="50,50,50,50">
             <Button x:ConnectionId='1' x:Name="UserEditBtn"                           >Save</Button>
-
+            <Button x:ConnectionId='2' x:Name="GetUsersBtn"                          >Test</Button>
         </StackPanel>
     </Grid>
 </Page>

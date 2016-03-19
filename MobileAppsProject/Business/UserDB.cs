@@ -38,17 +38,51 @@ namespace MobileAppsProject.Business
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path))
             {
-                //conn.CreateTable<UserTest>();
+                var infoTable = conn.GetTableInfo("User");
+
+                if (!infoTable.Any())
+                {
+                  //  conn.DropTable<User>();
+                    conn.CreateTable<User>();
+
+                }
                 var info = conn.GetMapping(typeof(User));
+
+                if (this._user.UserID == 0)
+                { 
+                    // (more property assignments here) 
+                    var i = conn.InsertOrReplace(this._user);
+                    conn.Commit();
+                   // this._user.UserID = i;
+                    //conn.Update(this.User);
+                    return i;
+                }
+                else
+                {
+                    var i = conn.Update(this._user);
+                    return i;
+                }
                 
-                // (more property assignments here) 
-                var i = conn.InsertOrReplace(this._user);
-                return i;
 
             }
         }
 
-        public List<User> getAll()
+        public static User getByUserID(int userID)
+        {
+            var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+            User user = new User();
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path))
+            {
+                user = (from u in conn.Table<User>()
+                         where u.UserID == userID
+                         select u
+                         ).ToList().FirstOrDefault();
+            }
+            return user;
+        }
+
+        public static List<User> getAll()
         {
             var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
             List<User> users = new List<User> { };
