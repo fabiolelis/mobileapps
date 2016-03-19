@@ -50,11 +50,10 @@ namespace MobileAppsProject.Business
 
                 if (this._user.UserID == 0)
                 { 
-                    // (more property assignments here) 
-                    var i = conn.InsertOrReplace(this._user);
+                    //var i = conn.InsertOrReplace(this._user);
+                    var i = conn.Insert(this._user);
                     conn.Commit();
                    // this._user.UserID = i;
-                    //conn.Update(this.User);
                     return i;
                 }
                 else

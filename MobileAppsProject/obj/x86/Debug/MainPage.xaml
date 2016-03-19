@@ -11,8 +11,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="50,50,50,50">
             <TextBlock x:ConnectionId='1' x:Name="helloUser">Hello</TextBlock>
-            <Button x:ConnectionId='2' x:Name="UserEditBtn"                           >Save</Button>
-            <Button x:ConnectionId='3' x:Name="GetUsersBtn"                          >Test</Button>
+            <Button x:ConnectionId='2' x:Name="UserEditBtn"                           >Edit</Button>
+            <Button x:ConnectionId='3' x:Name="AddMealbtn"                         >Test</Button>
         </StackPanel>
     </Grid>
 </Page>

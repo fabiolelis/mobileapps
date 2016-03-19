@@ -15,13 +15,13 @@
 					<StackPanel Margin="50,50,50,10" >
 
 						<TextBlock  TextWrapping="Wrap" Text="Name: "/>
-						<TextBox x:ConnectionId='11' x:Name="txtName" TextWrapping="Wrap" />
+						<TextBox x:ConnectionId='12' x:Name="txtName" TextWrapping="Wrap" />
 						<TextBlock  TextWrapping="Wrap" Text="Age: " />
-						<TextBox x:ConnectionId='12' x:Name="txtAge" TextWrapping="Wrap" />
+						<TextBox x:ConnectionId='13' x:Name="txtAge" TextWrapping="Wrap" />
 						<TextBlock  TextWrapping="Wrap" Text="Height: "/>
-						<TextBox x:ConnectionId='13' x:Name="txtHeight" TextWrapping="Wrap" />
+						<TextBox x:ConnectionId='14' x:Name="txtHeight" TextWrapping="Wrap" />
 						<TextBlock  TextWrapping="Wrap" Text="Weight " />
-						<TextBox x:ConnectionId='14' x:Name="txtWeight" TextWrapping="Wrap" />
+						<TextBox x:ConnectionId='15' x:Name="txtWeight" TextWrapping="Wrap" />
 					</StackPanel>
 				</Grid>
 				</PivotItem>
@@ -30,12 +30,14 @@
 					<StackPanel>
 						<TextBlock  TextWrapping="Wrap" Text="Wake up time " />
 						<TimePicker x:ConnectionId='7' x:Name="timeWakeUpTime"  />
-						<TextBlock  TextWrapping="Wrap" Text="Lunch time " />
-						<TimePicker x:ConnectionId='8' x:Name="timeLunchUpTime"  />
+                        <TextBlock  TextWrapping="Wrap" Text="Bed time " />
+                        <TimePicker x:ConnectionId='8' x:Name="timeBreakfestTime"  />
+                        <TextBlock  TextWrapping="Wrap" Text="Lunch time " />
+						<TimePicker x:ConnectionId='9' x:Name="timeLunchTime"  />
 						<TextBlock  TextWrapping="Wrap" Text="Dinner time " />
-						<TimePicker x:ConnectionId='9' x:Name="timeDinnerUpTime" />
+						<TimePicker x:ConnectionId='10' x:Name="timeDinnerTime" />
 						<TextBlock  TextWrapping="Wrap" Text="Bed time " />
-						<TimePicker x:ConnectionId='10' x:Name="timeBedUpTime"  />
+						<TimePicker x:ConnectionId='11' x:Name="timeBedTime"  />
 					</StackPanel>
 				</Grid>
 					</PivotItem>

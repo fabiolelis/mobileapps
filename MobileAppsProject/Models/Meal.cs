@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
+using SQLite.Net.Attributes;
 
 namespace MobileAppsProject.Models
 {
+    [Table("Meal")]
     class Meal
     {
+        private int _mealID;
         private int _energy;
         private int _fat;
         private int _saturates;
@@ -17,6 +20,22 @@ namespace MobileAppsProject.Models
         private enum _kind {BREAKFEST, LUNCH, DINNER, SNACK};
         private Image picture;
 
+        [Column("MealID")]
+        [PrimaryKey]
+        [NotNull]
+        [AutoIncrement]
+        public int MealID
+        {
+            get
+            {
+                return _mealID;
+            }
+
+            set
+            {
+                _mealID = value;
+            }
+        }
         public int Energy
         {
             get
@@ -69,6 +88,7 @@ namespace MobileAppsProject.Models
             }
         }
 
+      
         public int Salt
         {
             get
@@ -94,5 +114,7 @@ namespace MobileAppsProject.Models
                 picture = value;
             }
         }
+
+        
     }
 }

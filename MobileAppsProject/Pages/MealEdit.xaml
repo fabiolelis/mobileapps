@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="MobileAppsProject.Pages.MealEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MobileAppsProject.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="50,50,50,10" >
+
+            <TextBlock  TextWrapping="Wrap" Text="Energy: "/>
+            <TextBox x:Name="txtEnergy" TextWrapping="Wrap" />
+            <TextBlock  TextWrapping="Wrap" Text="Fat: "/>
+            <TextBox x:Name="txtFat" TextWrapping="Wrap" />
+            <TextBlock  TextWrapping="Wrap" Text="Saturates: "/>
+            <TextBox x:Name="txtSaturates" TextWrapping="Wrap" />
+            <TextBlock  TextWrapping="Wrap" Text="Sugar: "/>
+            <TextBox x:Name="txtSugar" TextWrapping="Wrap" />
+            <TextBlock  TextWrapping="Wrap" Text="Salt: "/>
+            <TextBox x:Name="txtSalt" TextWrapping="Wrap" />
+
+            <ComboBox x:Name="Kind">
+                <ComboBoxItem Tag="BREAKFEST">Breakfest</ComboBoxItem>
+                <ComboBoxItem Tag="LUNCH">Lunch</ComboBoxItem>
+                <ComboBoxItem Tag="DINNER">Dinner</ComboBoxItem>
+                <ComboBoxItem Tag="SNACK">Snack</ComboBoxItem>
+
+            </ComboBox>
+
+            <Image Width="300"></Image>
+
+            <Button x:Name="SaveBtn"  Click="SaveBtn_Click">Save</Button>
+
+
+
+        </StackPanel>
+    </Grid>
+</Page>

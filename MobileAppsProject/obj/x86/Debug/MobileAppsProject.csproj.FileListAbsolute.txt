@@ -1,7 +1,6 @@
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x86\Debug\ApplicationInsights.config
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x86\Debug\App.xbf
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x86\Debug\MainPage.xbf
-C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x86\Debug\Pages\BlankPage1.xbf
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x86\Debug\Pages\UserEdit.xbf
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x86\Debug\MobileAppsProject.xr.xml
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x86\Debug\MobileAppsProject.exe
@@ -123,18 +122,14 @@ C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileApp
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\App.g.cs
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\MainPage.g.i.cs
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\MainPage.g.cs
-C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\BlankPage1.g.i.cs
-C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\BlankPage1.g.cs
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\UserEdit.g.i.cs
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\UserEdit.g.cs
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\XamlTypeInfo.g.cs
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\App.xaml
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\MainPage.xaml
-C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\BlankPage1.xaml
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\UserEdit.xaml
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\App.xbf
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\MainPage.xbf
-C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\BlankPage1.xbf
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\UserEdit.xbf
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\XamlSaveStateFile.xml
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\MobileAppsProject.exe
@@ -206,3 +201,8 @@ C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileApp
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\MobileAppsProject.csprojResolveAssemblyReference.cache
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\MealEdit.g.i.cs
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\MealEdit.g.cs
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\MealEdit.xaml
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\MealEdit.xbf
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x86\Debug\Pages\MealEdit.xbf

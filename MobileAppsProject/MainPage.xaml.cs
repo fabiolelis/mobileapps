@@ -24,41 +24,52 @@ namespace MobileAppsProject
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        User user = null;
+
         public MainPage()
         {
             this.InitializeComponent();
 
             var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-            User user = null;
-
             if (localSettings.Values["userID"] != null)
             {
                 int userID = (int)localSettings.Values["userID"];
                 user = UserDB.getByUserID(userID);
-                //user = (User)UserDB.getAll().FirstOrDefault();
-
             }
            
             if (user != null)
             {
-                helloUser.Text = "Hello " + user.Name + "\nAge " + user.Age;
-
+                helloUser.Text = "Hello " + user.Name;
+                this.UserEditBtn.Content = "Edit user";
             }
             else
             {
                 helloUser.Text = "No user";
+                this.UserEditBtn.Content = "Add user";
             }
 
         }
 
         private void UserEditBtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(UserEdit));
+            var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            if (localSettings.Values["userID"] != null)
+            {
+                Frame.Navigate(typeof(UserEdit), user);
+            }
+            else
+            {
+                Frame.Navigate(typeof(UserEdit));
+            }
+                
         }
 
-        private void GetUsersBtn_Click(object sender, RoutedEventArgs e)
+       
+        private void AddMealbtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(BlankPage1));
+            Frame.Navigate(typeof(MealEdit));
         }
     }
 

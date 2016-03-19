@@ -30,12 +30,14 @@
 					<StackPanel>
 						<TextBlock  TextWrapping="Wrap" Text="Wake up time " />
 						<TimePicker x:Name="timeWakeUpTime"  />
-						<TextBlock  TextWrapping="Wrap" Text="Lunch time " />
-						<TimePicker x:Name="timeLunchUpTime"  />
+                        <TextBlock  TextWrapping="Wrap" Text="Bed time " />
+                        <TimePicker x:Name="timeBreakfestTime"  />
+                        <TextBlock  TextWrapping="Wrap" Text="Lunch time " />
+						<TimePicker x:Name="timeLunchTime"  />
 						<TextBlock  TextWrapping="Wrap" Text="Dinner time " />
-						<TimePicker x:Name="timeDinnerUpTime" />
+						<TimePicker x:Name="timeDinnerTime" />
 						<TextBlock  TextWrapping="Wrap" Text="Bed time " />
-						<TimePicker x:Name="timeBedUpTime"  />
+						<TimePicker x:Name="timeBedTime"  />
 					</StackPanel>
 				</Grid>
 					</PivotItem>
