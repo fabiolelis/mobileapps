@@ -9,11 +9,52 @@
     >
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Margin="50,50,50,50">
-            <TextBlock x:ConnectionId='1' x:Name="helloUser">Hello</TextBlock>
-            <Button x:ConnectionId='2' x:Name="UserEditBtn"                           >Edit</Button>
-            <Button x:ConnectionId='3' x:Name="AddMealbtn"                         >Test</Button>
+        <FlyoutBase.AttachedFlyout>
+            <MenuFlyout/>
+        </FlyoutBase.AttachedFlyout>
+
+        <StackPanel Margin="43,50,50,50" HorizontalAlignment="Center" Width="267">
+            <TextBlock x:ConnectionId='5' x:Name="helloUser" Height="65" FontSize="24">Hello</TextBlock>
+            <TextBlock HorizontalAlignment="Center">
+            	<Run Text="You have"/>
+            </TextBlock>
+            <TextBlock x:ConnectionId='6' x:Name="countdown" HorizontalAlignment="Center" Margin="59,0">1 hour and 31 minutes</TextBlock>
+            <TextBlock HorizontalAlignment="Center"> until your next meal</TextBlock>
+
+            <Ellipse Fill="#9957F10E" Height="150" Width="150" Stroke="Black" Margin="10,20">
+
+              
+
+            </Ellipse>
+
+            <StackPanel Orientation="Horizontal" Height="70">
+                <Button x:ConnectionId='7' x:Name="haveMeal" Content="Have it now!" HorizontalAlignment="Center" Margin="10,10,10,10"                        Background="#6617DC17"/>
+                <TextBlock VerticalAlignment="Center">
+            		<Run Text="Or..."/>
+                </TextBlock>
+                <Button x:ConnectionId='8' x:Name="haveSnack" Content="Have a snack!" HorizontalAlignment="Center" Margin="10,10,10,10" Background="#66C32E2E"/>
+
+            </StackPanel>
+
         </StackPanel>
+        <Button x:ConnectionId='1' x:Name="btnMenu" Content="" HorizontalAlignment="Right" Margin="10,10,0,0" VerticalAlignment="Top"
+                RenderTransformOrigin="-0.947,0.208"  Height="32" Width="60">
+            <Button.Background>
+                <ImageBrush Stretch="Fill" ImageSource="Assets/threelines.png"/>
+            </Button.Background>
+            <Button.Flyout>
+                <MenuFlyout Placement="Bottom">
+                    <MenuFlyoutItem x:ConnectionId='2' Text="Edit user info"                           />
+                    <MenuFlyoutItem x:ConnectionId='3' Text="Add a meal"                          />
+                    <MenuFlyoutItem x:ConnectionId='4' Text="List meals"                           />
+
+                </MenuFlyout>
+            </Button.Flyout>
+
+        </Button>
+
+
+
     </Grid>
 </Page>
 

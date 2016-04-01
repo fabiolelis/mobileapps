@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MobileAppsProject.Models;
+using Windows.UI.Core;
+using MobileAppsProject.Business;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,6 +29,9 @@ namespace MobileAppsProject.Pages
         public MealEdit()
         {
             this.InitializeComponent();
+
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -37,8 +42,14 @@ namespace MobileAppsProject.Pages
 
             if (meal != null)
             {
+                this.txtName.Text = meal.Name;
+                this.txtEnergy.Text = meal.Energy.ToString();
+                this.txtFat.Text = meal.Fat.ToString();
+                this.txtSaturates.Text = meal.Saturates.ToString();
+                this.txtSugar.Text = meal.Sugar.ToString();
+                this.txtSalt.Text = meal.Salt.ToString();
+                this.Kind.SelectedIndex = meal.Kind;
 
-               
 
             }
         }
@@ -48,18 +59,19 @@ namespace MobileAppsProject.Pages
             {
                 meal = new Meal();
             }
-            else
-            {
-                meal.Energy = Convert.ToInt32(this.txtEnergy.Text);
-                meal.Fat = Convert.ToInt32(this.txtFat.Text);
-                meal.Saturates = Convert.ToInt32(this.txtSaturates.Text);
-                meal.Sugar = Convert.ToInt32(this.txtSugar.Text);
-                meal.Salt = Convert.ToInt32(this.txtSalt.Text);
 
+            meal.Name = this.txtName.Text;
+            meal.Energy = Convert.ToInt32(this.txtEnergy.Text);
+            meal.Fat = Convert.ToInt32(this.txtFat.Text);
+            meal.Saturates = Convert.ToInt32(this.txtSaturates.Text);
+            meal.Sugar = Convert.ToInt32(this.txtSugar.Text);
+            meal.Salt = Convert.ToInt32(this.txtSalt.Text);
+            meal.Kind = this.Kind.SelectedIndex;
                 
+            
 
-            }
-
+            MealDB mdb = new MealDB(meal);
+            mdb.save();
 
             Frame.Navigate(typeof(MainPage));
 

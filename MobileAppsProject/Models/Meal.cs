@@ -12,13 +12,17 @@ namespace MobileAppsProject.Models
     class Meal
     {
         private int _mealID;
+        private string _name;
         private int _energy;
         private int _fat;
         private int _saturates;
         private int _sugar;
         private int _salt;
-        private enum _kind {BREAKFEST, LUNCH, DINNER, SNACK};
-        private Image picture;
+
+        /* 0 = Breakfest, 1 = LUNCH, 2 = DINNER, 3 = SNACK */
+        private int _kind;
+
+       // private Image picture;
 
         [Column("MealID")]
         [PrimaryKey]
@@ -102,19 +106,69 @@ namespace MobileAppsProject.Models
             }
         }
 
-        public Image Picture
+        public string Name
         {
             get
             {
-                return picture;
+                return _name;
             }
 
             set
             {
-                picture = value;
+                _name = value;
             }
         }
 
-        
+        public int Kind
+        {
+            get
+            {
+                return _kind;
+            }
+
+            set
+            {
+                _kind = value;
+            }
+        }
+        public string KindText
+        {
+            get
+            {
+                switch (_kind)
+                {
+                    case 0:
+                        return "Breakfest";
+                    case 1:
+                        return "Lunch";
+                    case 2:
+                        return "Dinner";
+                    case 3:
+                        return "Snack";
+                    default:
+                        return "";
+
+                }
+            }
+        }
+
+
+
+        /*
+public Image Picture
+{
+   get
+   {
+       return picture;
+   }
+
+   set
+   {
+       picture = value;
+   }
+}
+*/
+
+
     }
 }

@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MobileAppsProject.Models;
 using MobileAppsProject.Business;
+using Windows.UI.Core;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,7 +29,9 @@ namespace MobileAppsProject.Pages
         public UserEdit()
         {
             this.InitializeComponent();
-           
+
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

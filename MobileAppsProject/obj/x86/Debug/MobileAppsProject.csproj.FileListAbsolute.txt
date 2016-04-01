@@ -206,3 +206,8 @@ C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileApp
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\MealEdit.xaml
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\MealEdit.xbf
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x86\Debug\Pages\MealEdit.xbf
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x86\Debug\Pages\MealList.xbf
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\MealList.g.i.cs
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\MealList.g.cs
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\MealList.xaml
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x86\Debug\Pages\MealList.xbf

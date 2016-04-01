@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MobileAppsProject.Models;
 using System.IO;
-
+using System.Runtime.Serialization.Json;
+using Windows.Data.Json;
 
 namespace MobileAppsProject.Business
 {
@@ -31,6 +32,22 @@ namespace MobileAppsProject.Business
             this._meal = meal;
         }
 
+        public static List<Meal> getAll()
+        {
+            List<Meal> lm = new List<Meal> { };
+
+            var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path))
+            {
+                lm = (from m in conn.Table<Meal>()
+                         select m).ToList();
+
+            }
+
+            return lm;
+        }
+
         public int save()
         {
             var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
@@ -39,12 +56,13 @@ namespace MobileAppsProject.Business
             {
                 var infoTable = conn.GetTableInfo("Meal");
 
-                if (!infoTable.Any())
+                //if (!infoTable.Any())
                 {
-                    conn.CreateTable<User>();
+                    //conn.DropTable<Meal>();
+                    conn.CreateTable<Meal>();
 
                 }
-                var info = conn.GetMapping(typeof(User));
+                var info = conn.GetMapping(typeof(Meal));
 
                 if (this._meal.MealID == 0)
                 {

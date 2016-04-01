@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Navigation;
 using MobileAppsProject.Models;
 using MobileAppsProject.Business;
 using MobileAppsProject.Pages;
+using Windows.Web.Http;
+using System.Diagnostics;
+using Windows.UI.Core;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace MobileAppsProject
@@ -31,24 +34,35 @@ namespace MobileAppsProject
         {
             this.InitializeComponent();
 
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+
             var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             if (localSettings.Values["userID"] != null)
             {
                 int userID = (int)localSettings.Values["userID"];
                 user = UserDB.getByUserID(userID);
             }
-           
-            if (user != null)
+
+            if(user == null)
             {
-                helloUser.Text = "Hello " + user.Name;
-                this.UserEditBtn.Content = "Edit user";
-            }
-            else
-            {
-                helloUser.Text = "No user";
-                this.UserEditBtn.Content = "Add user";
+                Frame.Navigate(typeof(UserEdit));
+
             }
 
+            
+             if (user != null)
+             {
+                 helloUser.Text = "Hello " + user.Name;
+               //  this.UserEditBtn.Content = "Edit user";
+             }
+             /*
+             else
+             {
+                 helloUser.Text = "No user";
+                 this.UserEditBtn.Content = "Add user";
+             }
+             */
         }
 
         private void UserEditBtn_Click(object sender, RoutedEventArgs e)
@@ -66,10 +80,44 @@ namespace MobileAppsProject
                 
         }
 
-       
+        private void ListMealbtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MealList));
+        }
+
+
         private void AddMealbtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MealEdit));
+           /* var uri = new Uri("http://google.com");
+            var httpClient = new HttpClient();
+
+            // Always catch network exceptions for async methods
+            try
+            {
+                var result = await httpClient.GetStringAsync(uri);
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+            // Once your app is done using the HttpClient object call dispose to 
+            // free up system resources (the underlying socket and memory used for the object)
+            httpClient.Dispose();
+            */
+
+        }
+
+        private void imgSettings_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void haveMeal_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 
