@@ -13,21 +13,19 @@
             <MenuFlyout/>
         </FlyoutBase.AttachedFlyout>
 
-        <StackPanel Margin="43,50,50,50" HorizontalAlignment="Center" Width="267">
+        <StackPanel Margin="40,50" HorizontalAlignment="Center">
             <TextBlock x:Name="helloUser" Height="65" FontSize="24">Hello</TextBlock>
             <TextBlock HorizontalAlignment="Center">
             	<Run Text="You have"/>
             </TextBlock>
             <TextBlock x:Name="countdown" HorizontalAlignment="Center" Margin="59,0">1 hour and 31 minutes</TextBlock>
             <TextBlock HorizontalAlignment="Center"> until your next meal</TextBlock>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,10,40,10">
+                <Rectangle  Fill="Gray" Opacity="0.2" Width="200" Height="20" Margin="0" />
+                <Rectangle x:Name="rectTime" Fill="Green" Width="150" Height="20" Margin="0,-20,0,0" HorizontalAlignment="Left"/>
+            </StackPanel>
 
-            <Ellipse Fill="#9957F10E" Height="150" Width="150" Stroke="Black" Margin="10,20">
-
-              
-
-            </Ellipse>
-
-            <StackPanel Orientation="Horizontal" Height="70">
+            <StackPanel Orientation="Horizontal" Height="111" Margin="10">
                 <Button x:Name="haveMeal" Content="Have it now!" HorizontalAlignment="Center" Margin="10,10,10,10" Click="haveMeal_Click" Background="#6617DC17"/>
                 <TextBlock VerticalAlignment="Center">
             		<Run Text="Or..."/>

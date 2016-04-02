@@ -18,6 +18,7 @@ using MobileAppsProject.Pages;
 using Windows.Web.Http;
 using System.Diagnostics;
 using Windows.UI.Core;
+using System.ComponentModel;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace MobileAppsProject
@@ -30,10 +31,18 @@ namespace MobileAppsProject
 
         User user = null;
 
+        private BackgroundWorker bw = new BackgroundWorker();
+
+
         public MainPage()
         {
             this.InitializeComponent();
 
+            /*background works*/
+            bw.WorkerReportsProgress = true;
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);
+            
             var currentView = SystemNavigationManager.GetForCurrentView();
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
 
@@ -44,7 +53,13 @@ namespace MobileAppsProject
                 user = UserDB.getByUserID(userID);
             }
 
-            if(user == null)
+
+            if (bw.IsBusy != true)
+            {
+                bw.RunWorkerAsync();
+            }
+
+            if (user == null)
             {
                 Frame.Navigate(typeof(UserEdit));
 
@@ -53,7 +68,7 @@ namespace MobileAppsProject
             
              if (user != null)
              {
-                 helloUser.Text = "Hello " + user.Name;
+                 helloUser.Text = "Hello, " + user.Name +"!";
                //  this.UserEditBtn.Content = "Edit user";
              }
              /*
@@ -63,6 +78,56 @@ namespace MobileAppsProject
                  this.UserEditBtn.Content = "Add user";
              }
              */
+        }
+
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            int i = 0;
+            while(true)
+            {
+                
+                // Perform a time consuming operation and report progress.
+                // System.Threading.Thread.Sleep(500);
+                //Thread.Sleep(1000);
+
+                worker.ReportProgress(i);
+                i++;
+                i %= 100;    
+            }
+
+        }
+       
+        private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+            //Get the closest future meal
+
+           /* int[] diff = new int[3];
+            diff[0] = user.BreakfestTime - (int)DateTime.Now.TimeOfDay.TotalMinutes;
+            diff[1] = user.LunchTime - (int)DateTime.Now.TimeOfDay.TotalMinutes;
+            diff[2] = user.DinnerTime - (int)DateTime.Now.TimeOfDay.TotalMinutes;
+
+            int max
+            for(int i = 0; i < 3; i++)
+            {
+                if (diff[i] < 0) diff[i] = Int32.MaxValue;
+
+            }
+            */
+
+
+
+                this.countdown.Text = DateTime.Now.ToString();
+        }
+
+        public string getNext()
+        {
+            string s;
+
+
+            return s;
         }
 
         private void UserEditBtn_Click(object sender, RoutedEventArgs e)
@@ -117,6 +182,13 @@ namespace MobileAppsProject
 
         private void haveMeal_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+
+        public TimeSpan getTimeFromTotal(int total)
+        {
+            return new TimeSpan(total / 60, total % 60, 0);
 
         }
     }
