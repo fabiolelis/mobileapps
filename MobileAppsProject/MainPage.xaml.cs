@@ -36,6 +36,8 @@ namespace MobileAppsProject
         User user = null;
         Day _day = null;
         DispatcherTimer myStopwatchTimer;
+        string nextMeal = "";
+
 
         public MainPage()
         {
@@ -69,9 +71,7 @@ namespace MobileAppsProject
                 helloUser.Text = "Access menu button to add user";
                 return;
             }
-
-
-
+            
             updateDay();
             updateCountdown();
             updateDayReport();
@@ -127,7 +127,7 @@ namespace MobileAppsProject
         public void updateDay()
         {
 
-
+           // _day = null;
             if (this._day == null || (this._day.Date.Date.Year != DateTime.Now.Date.Year || this._day.Date.Date.DayOfYear != DateTime.Now.Date.DayOfYear))
             {
                 //create day
@@ -136,12 +136,24 @@ namespace MobileAppsProject
                 this._day.User = this.user;
                 this._day.Date = DateTime.Now;
                 this._day.LastMeal = (int)DateTime.Now.TimeOfDay.TotalMinutes;
+                
                 DayDB ddb = new DayDB(this._day);
 
                 ddb.save();
 
                 var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
                 localSettings.Values["dayID"] = _day.DayID;
+
+                List<Eat> eats = new List<Eat> { };
+                eats.Add(new Eat(_day.DayID, "Breakfest"));
+                eats.Add(new Eat(_day.DayID, "Lunch"));
+                eats.Add(new Eat(_day.DayID, "Dinner"));
+
+                foreach(Eat e in eats)
+                {
+                    EatDB edb = new EatDB(e);
+                    edb.save();
+                }
 
                 this.tbDate.Text = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
 
@@ -160,20 +172,14 @@ namespace MobileAppsProject
             }
             else
             {
-                string nextMeal = getNextMeal();
+                int nextMealTime = 0;
+                string nextMeal = getNextMeal(ref nextMealTime);
                 TimeSpan until = untilNext(nextMeal);
 
-                this.countdown.Text = until.Hours.ToString() + " hours and " + until.Minutes.ToString() + " minutes";
-                int nextTime = 0;
+                this.countdown.Text = until.Hours.ToString() + " hours and " + until.Minutes.ToString() + " minutes, " + nextMeal;
 
-                if (nextMeal.Equals("Breakfest"))
-                    nextTime = user.BreakfestTime;
-                if (nextMeal.Equals("Lunch"))
-                    nextTime = user.LunchTime;
-                if (nextMeal.Equals("Dinner"))
-                    nextTime = user.DinnerTime;
 
-                double ratio = (DateTime.Now.TimeOfDay.TotalMinutes - (double)_day.LastMeal) / (double)nextTime;
+                double ratio = (DateTime.Now.TimeOfDay.TotalMinutes - (double)_day.LastMeal) / (double)nextMealTime;
                 this.rectTime.Width = 200 * ratio;
             }
         }
@@ -228,36 +234,29 @@ namespace MobileAppsProject
         }
 
 
-        public string getNextMeal()
+        public string getNextMeal(ref int nextMealTime)
         {
-            int[] diff = new int[3];
-            diff[0] = user.BreakfestTime - (int)DateTime.Now.TimeOfDay.TotalMinutes;
-            diff[1] = user.LunchTime - (int)DateTime.Now.TimeOfDay.TotalMinutes;
-            diff[2] = user.DinnerTime - (int)DateTime.Now.TimeOfDay.TotalMinutes;
-
-
-            int min = Int32.MaxValue, mealMin = 3;
-            for (int i = 0; i < 3; i++)
+            if (user.DinnerTime > DateTime.Now.TimeOfDay.TotalMinutes)
             {
-                if (diff[i] < 0)
-                    diff[i] = Int32.MaxValue;
+                nextMeal = "Dinner";
+                nextMealTime = user.DinnerTime;
+            }
 
-                if (diff[i] < min)
-                {
-                    min = diff[i];
-                    mealMin = i;
-                }
+            if (user.LunchTime > DateTime.Now.TimeOfDay.TotalMinutes)
+            {
+                nextMeal = "Lunch";
+                nextMealTime = user.LunchTime;
 
             }
-            if(mealMin == 0)
-                return "Breakfest";
-            if(mealMin == 1)
-                return "Lunch";
-            if (mealMin == 2)
-                return "Dinner";
-            else
-                return "";
 
+            if (user.BreakfestTime > DateTime.Now.TimeOfDay.TotalMinutes)
+            {
+                nextMeal = "Breakfest";
+                nextMealTime = user.BreakfestTime;
+
+            }
+
+            return nextMeal;
 
         }
 
@@ -329,7 +328,7 @@ namespace MobileAppsProject
 
         private void haveMeal_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(HaveMeal), _day);
+            Frame.Navigate(typeof(HaveMeal), new HaveMealClass(_day, nextMeal));
         }
 
         private void haveSnack_Click(object sender, RoutedEventArgs e)

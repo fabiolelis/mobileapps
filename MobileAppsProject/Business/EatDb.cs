@@ -8,57 +8,60 @@ using System.IO;
 
 namespace MobileAppsProject.Business
 {
-    class DayDB
+    class EatDB
     {
-        private Day _Day;
+        private Eat _eat;
 
-        internal Day Day
+        internal Eat Eat
         {
             get
             {
-                return _Day;
+                return _eat;
             }
 
             set
             {
-                _Day = value;
+                _eat = value;
             }
         }
 
-        public DayDB(Day Day)
+        public EatDB(Eat eat)
         {
-            this._Day = Day;
+            this._eat = eat;
         }
 
-        public static List<Day> getAll()
+        public static List<Eat> getByDayID(int dayID)
         {
-            List<Day> lm = new List<Day> { };
+            List<Eat> lm = new List<Eat> { };
 
             var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path))
             {
-                lm = (from m in conn.Table<Day>()
-                      select m).ToList();
+                lm = (from m in conn.Table<Eat>()
+                      where m.DayID == dayID 
+                      select m
+                      ).ToList();
 
             }
 
             return lm;
         }
 
-        public static Day getByDayID(int dayID)
+        public static List<Eat> getAll()
         {
+            List<Eat> lm = new List<Eat> { };
+
             var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
-            Day day = new Day();
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path))
             {
-                day = (from d in conn.Table<Day>()
-                        where d.DayID == dayID
-                        select d
-                         ).ToList().FirstOrDefault();
+                lm = (from m in conn.Table<Eat>()
+                      select m).ToList();
+
             }
-            return day;
+
+            return lm;
         }
 
         public int save()
@@ -67,25 +70,25 @@ namespace MobileAppsProject.Business
 
             using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path))
             {
-                var infoTable = conn.GetTableInfo("Day");
+                var infoTable = conn.GetTableInfo("Eat");
 
-                //if (!infoTable.Any())
+                if (!infoTable.Any())
                 {
-                    conn.DropTable<Day>();
-                    conn.CreateTable<Day>();
+                    //conn.DropTable<Eat>();
+                    conn.CreateTable<Eat>();
 
                 }
-                var info = conn.GetMapping(typeof(Day));
+                var info = conn.GetMapping(typeof(Eat));
 
-                if (this._Day.DayID == 0)
+                if (this._eat.EatID == 0)
                 {
-                    var i = conn.Insert(this._Day);
+                    var i = conn.Insert(this._eat);
                     conn.Commit();
                     return i;
                 }
                 else
                 {
-                    var i = conn.Update(this._Day);
+                    var i = conn.Update(this._eat);
                     return i;
                 }
 

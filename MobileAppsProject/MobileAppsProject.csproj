@@ -106,6 +106,7 @@
     </Compile>
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Eat.cs" />
+    <Compile Include="Models\HaveMealClass.cs" />
     <Compile Include="Models\Meal.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\HaveMeal.xaml.cs">

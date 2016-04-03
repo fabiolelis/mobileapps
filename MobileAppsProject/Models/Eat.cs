@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite.Net.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,19 @@ namespace MobileAppsProject.Models
 {
     class Eat
     {
+        private int _eatID;
         private Meal _meal;
         private DateTime _time;
         private Boolean _done = false;
-        private Boolean _skippes = false;
+        private Boolean _skipped = false;//*mistyped for skipped
+        private string _kind;// breakfest, lunch, dinner, snack
+        private int _dayID;
+        private Boolean _notified = false;
+
+        public Eat(int dayID, string kind){
+            this.DayID = dayID;
+            this.Kind = kind;
+        }
 
         internal Meal Meal
         {
@@ -52,16 +62,59 @@ namespace MobileAppsProject.Models
             }
         }
 
-        public bool Skippes
+        public bool Skipped
         {
             get
             {
-                return _skippes;
+                return _skipped;
             }
 
             set
             {
-                _skippes = value;
+                _skipped = value;
+            }
+        }
+
+        public string Kind
+        {
+            get
+            {
+                return _kind;
+            }
+
+            set
+            {
+                _kind = value;
+            }
+        }
+
+        [Column("EatID")]
+        [PrimaryKey]
+        [NotNull]
+        [AutoIncrement]
+        public int EatID
+        {
+            get
+            {
+                return _eatID;
+            }
+
+            set
+            {
+                _eatID = value;
+            }
+        }
+
+        public int DayID
+        {
+            get
+            {
+                return _dayID;
+            }
+
+            set
+            {
+                _dayID = value;
             }
         }
     }

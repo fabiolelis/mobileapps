@@ -27,6 +27,8 @@ namespace MobileAppsProject.Pages
     public sealed partial class HaveMeal : Page
     {
         Day _day;
+        string _kind = "";
+        List<Eat> eats = new List<Eat> { };
 
         public HaveMeal()
         {
@@ -45,8 +47,10 @@ namespace MobileAppsProject.Pages
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var parameter = e.Parameter as Day;
-            _day = parameter;
+            var parameter = e.Parameter as HaveMealClass;
+            _day = parameter.Day;
+            _kind = parameter.Kind;
+            //get eats
 
             cbMeal.ItemsSource = MealDB.getAll();
             cbMeal.DisplayMemberPath = "Name";
@@ -59,24 +63,23 @@ namespace MobileAppsProject.Pages
 
         private void btnHave_Click(object sender, RoutedEventArgs e)
         {
-            if (_day.Eats == null)
-                _day.Eats = new List<Eat> { };
-            Eat eat = new Eat();
-            eat.Meal = (Meal)cbMeal.SelectedItem;
-            eat.Time = DateTime.Now;
-            eat.Done = true;
-            eat.Skippes = false;
 
-            _day.Eats.Add(eat);
-            _day.Energy += eat.Meal.Energy;
-            _day.Fat += eat.Meal.Fat;
-            _day.Saturates += eat.Meal.Saturates;
-            _day.Sugars += eat.Meal.Sugar;
-            _day.Salt += eat.Meal.Salt;
+            //get eat from day by kind
+            /*
+            _day.Eats.Where(p => p.Kind == _kind).First().Meal = (Meal)cbMeal.SelectedItem;
+            _day.Eats.Where(p => p.Kind == _kind).First().Time = DateTime.Now;
+            _day.Eats.Where(p => p.Kind == _kind).First().Done = true;
+
+            _day.Energy += _day.Eats.Where(p => p.Kind == _kind).First().Meal.Energy;
+            _day.Fat += _day.Eats.Where(p => p.Kind == _kind).First().Meal.Fat;
+            _day.Saturates += _day.Eats.Where(p => p.Kind == _kind).First().Meal.Saturates;
+            _day.Sugars += _day.Eats.Where(p => p.Kind == _kind).First().Meal.Sugar;
+            _day.Salt += _day.Eats.Where(p => p.Kind == _kind).First().Meal.Salt;
 
             DayDB ddb = new DayDB(_day);
             ddb.save();
-
+            */
+            
             Frame.Navigate(typeof(MainPage));
         }
 

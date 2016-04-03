@@ -11,7 +11,6 @@ namespace MobileAppsProject.Models
     {
         private int _dayID;
         private User _user;
-      //  private List<Meal> _meals;//delete
         private int _energy;
         private int _fat;
         private int _saturates;
@@ -19,7 +18,6 @@ namespace MobileAppsProject.Models
         private int _salt;
         private DateTime _date;
         private int lastMeal;
-        private List<Eat> _eats;
 
         [Column("UserID")]
         [PrimaryKey]
@@ -144,17 +142,6 @@ namespace MobileAppsProject.Models
             }
         }
 
-        internal List<Eat> Eats
-        {
-            get
-            {
-                return _eats;
-            }
-
-            set
-            {
-                _eats = value;
-            }
-        }
+       
     }
 }

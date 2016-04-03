@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-04-03T20:10:12.087</Modified>
+      <Modified>2016-04-03T23:02:01.541</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\MobileAppsProject.exe">
       <PackagePath>entrypoint\MobileAppsProject.exe</PackagePath>
-      <Modified>2016-04-03T20:10:10.673</Modified>
+      <Modified>2016-04-03T23:01:58.158</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -526,11 +526,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-04-03T19:15:23.524</Modified>
+      <Modified>2016-04-03T22:33:26.413</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\Core\MobileAppsProject.exe">
       <PackagePath>MobileAppsProject.exe</PackagePath>
-      <Modified>2016-04-03T20:10:12.067</Modified>
+      <Modified>2016-04-03T23:02:01.514</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
