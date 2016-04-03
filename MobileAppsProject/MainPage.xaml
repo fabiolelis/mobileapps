@@ -18,7 +18,7 @@
             <TextBlock HorizontalAlignment="Center">
             	<Run Text="You have"/>
             </TextBlock>
-            <TextBlock x:Name="countdown" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333">1 hour and 31 minutes</TextBlock>
+            <TextBlock x:Name="countdown" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333">_</TextBlock>
             <TextBlock HorizontalAlignment="Center"> until your next meal</TextBlock>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,10,40,10">
                 <Rectangle  Fill="Gray" Opacity="0.2" Width="200" Height="20" Margin="0" />
