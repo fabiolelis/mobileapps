@@ -8,11 +8,12 @@
 	mc:Ignorable="d">
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
 			<Pivot>
 
 				<PivotItem Header="You">
 					<Grid>
-					<StackPanel Margin="50,50,50,10" >
+					<StackPanel  >
 
 						<TextBlock  TextWrapping="Wrap" Text="Name: "/>
 						<TextBox x:Name="txtName" TextWrapping="Wrap" />
@@ -30,7 +31,7 @@
 					<StackPanel>
 						<TextBlock  TextWrapping="Wrap" Text="Wake up time " />
 						<TimePicker x:Name="timeWakeUpTime"  />
-                        <TextBlock  TextWrapping="Wrap" Text="Bed time " />
+                        <TextBlock  TextWrapping="Wrap" Text="Breakfest time " />
                         <TimePicker x:Name="timeBreakfestTime"  />
                         <TextBlock  TextWrapping="Wrap" Text="Lunch time " />
 						<TimePicker x:Name="timeLunchTime"  />
@@ -54,11 +55,12 @@
 						<TextBox x:Name="txtSugar" TextWrapping="Wrap" Text="90"/>
 						<TextBlock  TextWrapping="Wrap" Text="Salt (g) " />
 						<TextBox x:Name="txtSalt" TextWrapping="Wrap" Text="6" />
-						<Button x:Name="SaveBtn"  Click="SaveBtn_Click">Save</Button>
 					</StackPanel>
 				</Grid>
 				</PivotItem>
 			</Pivot>
-			
-	</Grid>
+            <Button x:Name="SaveBtn" HorizontalAlignment="Right" Click="SaveBtn_Click" Content="Save" VerticalAlignment="Top" Margin="20,20,15,20" Width="75"/>
+        </StackPanel>
+
+    </Grid>
 </Page>

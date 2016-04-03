@@ -56,7 +56,7 @@ namespace MobileAppsProject.Business
             {
                 var infoTable = conn.GetTableInfo("Meal");
 
-                //if (!infoTable.Any())
+                if (!infoTable.Any())
                 {
                     //conn.DropTable<Meal>();
                     conn.CreateTable<Meal>();

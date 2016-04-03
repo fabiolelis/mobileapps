@@ -71,7 +71,7 @@ namespace MobileAppsProject.Business
 
                 if (!infoTable.Any())
                 {
-                    //conn.DropTable<Day>();
+                   // conn.DropTable<Day>();
                     conn.CreateTable<Day>();
 
                 }

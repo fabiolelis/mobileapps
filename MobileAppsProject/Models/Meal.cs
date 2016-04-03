@@ -18,6 +18,7 @@ namespace MobileAppsProject.Models
         private int _saturates;
         private int _sugar;
         private int _salt;
+        private string _picPath;
 
         /* 0 = Breakfest, 1 = LUNCH, 2 = DINNER, 3 = SNACK */
         private int _kind;
@@ -149,6 +150,19 @@ namespace MobileAppsProject.Models
                         return "";
 
                 }
+            }
+        }
+
+        public string PicPath
+        {
+            get
+            {
+                return _picPath;
+            }
+
+            set
+            {
+                _picPath = value;
             }
         }
 

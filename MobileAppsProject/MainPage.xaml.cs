@@ -21,6 +21,8 @@ using Windows.UI.Core;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using Windows.System.Threading;
+using Windows.UI;
+using Windows.UI.Notifications;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace MobileAppsProject
@@ -38,9 +40,71 @@ namespace MobileAppsProject
         public MainPage()
         {
             this.InitializeComponent();
-            
             var currentView = SystemNavigationManager.GetForCurrentView();
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+
+            getStorageInfo();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+
+                changeUI(null, null);
+                myStopwatchTimer = new DispatcherTimer();
+                myStopwatchTimer.Tick += changeUI;
+                myStopwatchTimer.Interval = new TimeSpan(0, 0, 0, 10, 0); // 1 second
+                myStopwatchTimer.Start();
+
+                this.tbDate.Text = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+                // _day = null;
+
+            
+
+        }
+
+        private void changeUI(object sender, object e)
+        {
+            if(user == null)
+            {
+                helloUser.Text = "Access menu button to add user";
+                return;
+            }
+
+
+
+            updateDay();
+            updateCountdown();
+            updateDayReport();
+            checkAndNotify();
+
+        }
+
+        public void checkAndNotify()
+        {
+            //check if it is time
+
+            //notify:
+            string toast = "<toast>"
+                    + "<visual>"
+                    + "<binding template = \"ToastGeneric\" >"
+                    + "<text> Time to eat! </text>"
+                    + "</binding>"
+                    + "</visual>"
+                    + "<audio src=\"ms - winsoundevent:Notification.Reminder\"/>"
+                    + "</toast>";
+
+
+            Windows.Data.Xml.Dom.XmlDocument toastDOM = new Windows.Data.Xml.Dom.XmlDocument();
+            toastDOM.LoadXml(toast);
+
+            ToastNotification toastNotification = new ToastNotification(toastDOM);
+
+            var toastNotifier = Windows.UI.Notifications.ToastNotificationManager.CreateToastNotifier();
+            toastNotifier.Show(toastNotification);
+        }
+
+        public void getStorageInfo()
+        {
 
             var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             if (localSettings.Values["userID"] != null)
@@ -53,34 +117,15 @@ namespace MobileAppsProject
                 int dayID = (int)localSettings.Values["dayID"];
                 _day = DayDB.getByDayID(dayID);
             }
-            
-
-            if (user == null)
-            {
-                user = new User();
-                helloUser.Text = "Go to menu and edit you info ->";
-
-            }
 
 
             if (user != null)
-             {
-                 helloUser.Text = "Hello, " + user.Name +"!";
-               //  this.UserEditBtn.Content = "Edit user";
-             }
-            
-
-            myStopwatchTimer = new DispatcherTimer();
-            myStopwatchTimer.Tick += changeUI;
-            myStopwatchTimer.Interval = new TimeSpan(0, 0, 0, 10, 0); // 1 second
-            myStopwatchTimer.Start();
-            changeUI(null, null);
+                helloUser.Text = "Hello, " + user.Name + "!";
 
         }
 
-        private void changeUI(object sender, object e)
+        public void updateDay()
         {
-            //Get the closest future meal
 
 
             if (this._day == null || (this._day.Date.Date.Year != DateTime.Now.Date.Year || this._day.Date.Date.DayOfYear != DateTime.Now.Date.DayOfYear))
@@ -98,8 +143,16 @@ namespace MobileAppsProject
                 var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
                 localSettings.Values["dayID"] = _day.DayID;
 
+                this.tbDate.Text = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+
             }
 
+
+
+        }
+
+        public void updateCountdown()
+        {
             if (DateTime.Now.TimeOfDay.TotalMinutes > user.DinnerTime)
             {
                 this.countdown.Text = "no more food today...";
@@ -107,23 +160,83 @@ namespace MobileAppsProject
             }
             else
             {
-                TimeSpan until = untilNext();
+                string nextMeal = getNextMeal();
+                TimeSpan until = untilNext(nextMeal);
 
                 this.countdown.Text = until.Hours.ToString() + " hours and " + until.Minutes.ToString() + " minutes";
-                // fix it:
-                //this.rectTime.Width = 200 * ((DateTime.Now.TimeOfDay.TotalMinutes - (double)_day.LastMeal) - (double)until.TotalMinutes));
+                int nextTime = 0;
+
+                if (nextMeal.Equals("Breakfest"))
+                    nextTime = user.BreakfestTime;
+                if (nextMeal.Equals("Lunch"))
+                    nextTime = user.LunchTime;
+                if (nextMeal.Equals("Dinner"))
+                    nextTime = user.DinnerTime;
+
+                double ratio = (DateTime.Now.TimeOfDay.TotalMinutes - (double)_day.LastMeal) / (double)nextTime;
+                this.rectTime.Width = 200 * ratio;
             }
         }
 
-        public TimeSpan untilNext()
+        public void updateDayReport()
         {
+            double ratio;
+            ratio = (double)_day.Energy / (double)user.Ref_energy;
+            this.rectEnergy.Width = 100 * ratio;
+            this.tbEnergy.Text = "Energy " + String.Format("{0:0.00}", ratio * 100) + "%";
+            if (ratio > 1)
+            {
+                this.rectEnergy.Width = 100;
+                this.rectEnergy.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+            }
 
+            ratio = (double)_day.Fat / (double)user.Ref_fat;
+            this.rectFat.Width = 100 * ratio;
+            this.tbFat.Text = "Fat " + String.Format("{0:0.00}", ratio * 100) + "%";
+            if (ratio > 1)
+            {
+                this.rectFat.Width = 100;
+                this.rectFat.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+            }
+
+            ratio = (double)_day.Saturates / (double)user.Ref_saturates;
+            this.rectSaturates.Width = 100 * ratio;
+            this.tbSaturates.Text = "Saturates " + String.Format("{0:0.00}", ratio * 100) + "%";
+            if (ratio > 1)
+            {
+                this.rectSaturates.Width = 100;
+                this.rectSaturates.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+            }
+
+            ratio = (double)_day.Sugars / (double)user.Ref_sugar;
+            this.rectSugar.Width = 100 * ratio;
+            this.tbSugar.Text = "Sugar " + String.Format("{0:0.00}", ratio * 100) + "%";
+            if (ratio > 1)
+            {
+                this.rectSugar.Width = 100;
+                this.rectSugar.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+            }
+
+            ratio = (double)_day.Salt / (double)user.Ref_salt;
+            this.rectSalt.Width = 100 * ratio;
+            this.tbSalt.Text = "Salt " + String.Format("{0:0.00}", ratio * 100) + "%";
+            if (ratio > 1)
+            {
+                this.rectSalt.Width = 100;
+                this.rectSalt.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+            }
+        }
+
+
+        public string getNextMeal()
+        {
             int[] diff = new int[3];
             diff[0] = user.BreakfestTime - (int)DateTime.Now.TimeOfDay.TotalMinutes;
             diff[1] = user.LunchTime - (int)DateTime.Now.TimeOfDay.TotalMinutes;
             diff[2] = user.DinnerTime - (int)DateTime.Now.TimeOfDay.TotalMinutes;
 
-            int min = Int32.MaxValue;
+
+            int min = Int32.MaxValue, mealMin = 3;
             for (int i = 0; i < 3; i++)
             {
                 if (diff[i] < 0)
@@ -132,17 +245,44 @@ namespace MobileAppsProject
                 if (diff[i] < min)
                 {
                     min = diff[i];
-
+                    mealMin = i;
                 }
 
             }
-            TimeSpan ts = getTimeFromTotal(min);
+            if(mealMin == 0)
+                return "Breakfest";
+            if(mealMin == 1)
+                return "Lunch";
+            if (mealMin == 2)
+                return "Dinner";
+            else
+                return "";
+
+
+        }
+
+        public TimeSpan untilNext(string next)
+        {
+            int nextTime = 0;
+            if (next.Equals("Breakfest"))
+                nextTime = user.BreakfestTime;
+            if (next.Equals("Lunch"))
+                nextTime = user.LunchTime;
+            if (next.Equals("Dinner"))
+                nextTime = user.DinnerTime;
+
+            TimeSpan ts = getTimeFromTotal(nextTime - (int)DateTime.Now.TimeOfDay.TotalMinutes);
             return ts;
 
         }
 
+        public TimeSpan getTimeFromTotal(int total)
+        {
+            return new TimeSpan(total / 60, total % 60, 0);
 
-        
+        }
+
+
         private void UserEditBtn_Click(object sender, RoutedEventArgs e)
         {
             var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
@@ -162,7 +302,6 @@ namespace MobileAppsProject
         {
             Frame.Navigate(typeof(MealList));
         }
-
 
         private void AddMealbtn_Click(object sender, RoutedEventArgs e)
         {
@@ -190,13 +329,11 @@ namespace MobileAppsProject
 
         private void haveMeal_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(HaveMeal), _day);
         }
 
-
-        public TimeSpan getTimeFromTotal(int total)
+        private void haveSnack_Click(object sender, RoutedEventArgs e)
         {
-            return new TimeSpan(total / 60, total % 60, 0);
 
         }
     }

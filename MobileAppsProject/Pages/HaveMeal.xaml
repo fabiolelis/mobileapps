@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="MobileAppsProject.Pages.HaveMeal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MobileAppsProject.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel x:Name="bodySP" Margin="40">
+            <TextBlock x:Name="tbTitle" FontWeight="Bold" FontSize="18.667" Margin="0,0,0,20">Choose your meal</TextBlock>
+            <TextBlock x:Name="tbMeal">Meal:</TextBlock>
+            <ComboBox x:Name="cbMeal" HorizontalAlignment="Stretch" SelectionChanged="cbMeal_SelectionChanged" />
+            <StackPanel x:Name="detailsSP" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <StackPanel x:Name="tbsDetails" HorizontalAlignment="Left">
+                    <TextBlock x:Name="tbName" Margin="0,10" FontSize="16" FontWeight="SemiBold">Name</TextBlock>
+                    <TextBlock x:Name="tbEnergy">Energy </TextBlock>
+                    <TextBlock x:Name="tbFat">Fat </TextBlock>
+                    <TextBlock x:Name="tbSaturates">Saturates </TextBlock>
+                    <TextBlock x:Name="tbSugar">Sugar </TextBlock>
+                    <TextBlock x:Name="tbSalt">Salt </TextBlock>
+                </StackPanel>
+                <StackPanel x:Name="imgDetails" HorizontalAlignment="Right" Margin="0,0,400,0">
+                    <Image x:Name="imgMeal" Source="../Assets/meals/example.jpeg" HorizontalAlignment="Right" Width="207" Height="164" Margin="30,10,10,0" ></Image>
+                </StackPanel>
+            </StackPanel>
+
+
+
+
+            <Button x:Name="btnHave" Click="btnHave_Click" Background="#66008000" Margin="0,20,0,0" HorizontalAlignment="Right">Done</Button>
+        </StackPanel>
+    </Grid>
+</Page>

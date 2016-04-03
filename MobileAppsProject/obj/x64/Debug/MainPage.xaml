@@ -8,50 +8,98 @@
     mc:Ignorable="d"
     >
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
         <FlyoutBase.AttachedFlyout>
             <MenuFlyout/>
         </FlyoutBase.AttachedFlyout>
 
-        <StackPanel Margin="40,50" HorizontalAlignment="Center">
-            <TextBlock x:ConnectionId='5' x:Name="helloUser" Height="65" FontSize="24">Hello</TextBlock>
+        <StackPanel x:ConnectionId='1' x:Name="spBody" Margin="40,50" HorizontalAlignment="Center">
+            <TextBlock x:ConnectionId='10' x:Name="helloUser" Height="65" FontSize="24" FontWeight="SemiBold">Hello</TextBlock>
             <TextBlock HorizontalAlignment="Center">
             	<Run Text="You have"/>
             </TextBlock>
-            <TextBlock x:ConnectionId='6' x:Name="countdown" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333">_</TextBlock>
+            <TextBlock x:ConnectionId='11' x:Name="countdown" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333" Foreground="#FF17DC17">_</TextBlock>
             <TextBlock HorizontalAlignment="Center"> until your next meal</TextBlock>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,10,40,10">
                 <Rectangle  Fill="Gray" Opacity="0.2" Width="200" Height="20" Margin="0" />
-                <Rectangle x:ConnectionId='9' x:Name="rectTime" Fill="Green" Width="150" Height="20" Margin="0,-20,0,0" HorizontalAlignment="Left"/>
+                <Rectangle x:ConnectionId='29' x:Name="rectTime" Fill="#FF17DC17" Width="150" Height="20" Margin="0,-20,0,0" HorizontalAlignment="Left"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Height="111" Margin="10">
-                <Button x:ConnectionId='7' x:Name="haveMeal" Content="Have it now!" HorizontalAlignment="Center" Margin="10,10,10,10"                        Background="#6617DC17"/>
+                <Button x:ConnectionId='27' x:Name="haveMeal" Content="Have it now!" HorizontalAlignment="Center" Margin="10,10,10,10"                        Background="#6617DC17"/>
                 <TextBlock VerticalAlignment="Center">
             		<Run Text="Or..."/>
                 </TextBlock>
-                <Button x:ConnectionId='8' x:Name="haveSnack" Content="Have a snack!" HorizontalAlignment="Center" Margin="10,10,10,10" Background="#66C32E2E"/>
+                <Button x:ConnectionId='28' x:Name="haveSnack" Content="Have a snack!" HorizontalAlignment="Center" Margin="10,10,10,10"                         Background="#6617DC17"/>
 
             </StackPanel>
 
+            <StackPanel x:ConnectionId='12' x:Name="bottomSp" Orientation="Horizontal" Margin="10,0" HorizontalAlignment="Center">
+                <StackPanel x:ConnectionId='13' x:Name="yourDaySP" Margin="10,10,10,10">
+
+                    <TextBlock Margin="0,0,0,10" FontWeight="Bold" Foreground="Blue">Your day</TextBlock>
+
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock x:ConnectionId='25' x:Name="tbEnergy">Energy</TextBlock>
+                        <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
+                        <Rectangle x:ConnectionId='26' x:Name="rectEnergy" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Left" >
+                        <TextBlock x:ConnectionId='23' x:Name="tbFat">Fat</TextBlock>
+                        <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
+                        <Rectangle x:ConnectionId='24' x:Name="rectFat" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left"  >
+                        <TextBlock x:ConnectionId='21' x:Name="tbSaturates">Saturates</TextBlock>
+                        <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
+                        <Rectangle x:ConnectionId='22' x:Name="rectSaturates" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left"  >
+                        <TextBlock x:ConnectionId='19' x:Name="tbSugar">Sugar</TextBlock>
+                        <Rectangle Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
+                        <Rectangle x:ConnectionId='20' x:Name="rectSugar" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left" >
+                        <TextBlock x:ConnectionId='17' x:Name="tbSalt">Salt</TextBlock>
+                        <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
+                        <Rectangle x:ConnectionId='18' x:Name="rectSalt" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                </StackPanel>
+                <StackPanel x:ConnectionId='14' x:Name="reportsSP" HorizontalAlignment="Right" Margin="20,10,0,0">
+                    <TextBlock Margin="0,0,0,10" FontWeight="Bold" Foreground="Red">Reports</TextBlock>
+
+                    <Button x:ConnectionId='15' x:Name="btnDatailDay" Content="Day detailed" Margin="10" Background="#66FF0000"></Button>
+                    <Button x:ConnectionId='16' x:Name="btnDatailPast" Content="Past detailed" Margin="10" Background="#66FF0000"></Button>
+
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
-        <Button x:ConnectionId='1' x:Name="btnMenu" Content="" HorizontalAlignment="Right" Margin="10,10,0,0" VerticalAlignment="Top"
-                RenderTransformOrigin="-0.947,0.208"  Height="32" Width="60">
-            <Button.Background>
-                <ImageBrush Stretch="Fill" ImageSource="Assets/threelines.png"/>
-            </Button.Background>
-            <Button.Flyout>
-                <MenuFlyout Placement="Bottom">
-                    <MenuFlyoutItem x:ConnectionId='2' Text="Edit user info"                           />
-                    <MenuFlyoutItem x:ConnectionId='3' Text="Add a meal"                          />
-                    <MenuFlyoutItem x:ConnectionId='4' Text="List meals"                           />
+            
+        <StackPanel x:ConnectionId='2' x:Name="headerSP" Orientation="Horizontal" Height="45" HorizontalAlignment="Stretch" Margin="40,10,40,0" VerticalAlignment="Top">
+            <StackPanel x:ConnectionId='3' x:Name="dateSp" HorizontalAlignment="Left" Width="140" Margin="0" VerticalAlignment="Center">
+                <TextBlock x:ConnectionId='9' x:Name="tbDate" TextWrapping="Wrap" Text="Date" Height="25"  HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <StackPanel x:ConnectionId='4' HorizontalAlignment="Right" Height="45" Width="162" x:Name="menuSp" Margin="0">
+                <Button x:ConnectionId='5' x:Name="btnMenu" Content="" HorizontalAlignment="Right" Margin="0,10,0,0" VerticalAlignment="Center"
+            		RenderTransformOrigin="-0.947,0.208"  Height="32" Width="60" HorizontalContentAlignment="Right">
+                    <Button.Background>
+                        <ImageBrush Stretch="Fill" ImageSource="Assets/threelines.png"/>
+                    </Button.Background>
+                    <Button.Flyout>
+                        <MenuFlyout Placement="Bottom">
+                            <MenuFlyoutItem x:ConnectionId='6' Text="Edit user info"                           />
+                            <MenuFlyoutItem x:ConnectionId='7' Text="Add a meal"                          />
+                            <MenuFlyoutItem x:ConnectionId='8' Text="List meals"                           />
 
-                </MenuFlyout>
-            </Button.Flyout>
+                        </MenuFlyout>
+                    </Button.Flyout>
 
-        </Button>
-
-
+                </Button>
+            </StackPanel>
+         </StackPanel>
+       
 
     </Grid>
 </Page>

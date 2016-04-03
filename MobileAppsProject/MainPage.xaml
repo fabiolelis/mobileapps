@@ -8,21 +8,21 @@
     mc:Ignorable="d"
     >
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
         <FlyoutBase.AttachedFlyout>
             <MenuFlyout/>
         </FlyoutBase.AttachedFlyout>
 
-        <StackPanel Margin="40,50" HorizontalAlignment="Center">
-            <TextBlock x:Name="helloUser" Height="65" FontSize="24">Hello</TextBlock>
+        <StackPanel x:Name="spBody" Margin="40,50" HorizontalAlignment="Center">
+            <TextBlock x:Name="helloUser" Height="65" FontSize="24" FontWeight="SemiBold">Hello</TextBlock>
             <TextBlock HorizontalAlignment="Center">
             	<Run Text="You have"/>
             </TextBlock>
-            <TextBlock x:Name="countdown" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333">_</TextBlock>
+            <TextBlock x:Name="countdown" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333" Foreground="#FF17DC17">_</TextBlock>
             <TextBlock HorizontalAlignment="Center"> until your next meal</TextBlock>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,10,40,10">
                 <Rectangle  Fill="Gray" Opacity="0.2" Width="200" Height="20" Margin="0" />
-                <Rectangle x:Name="rectTime" Fill="Green" Width="150" Height="20" Margin="0,-20,0,0" HorizontalAlignment="Left"/>
+                <Rectangle x:Name="rectTime" Fill="#FF17DC17" Width="150" Height="20" Margin="0,-20,0,0" HorizontalAlignment="Left"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Height="111" Margin="10">
@@ -30,28 +30,76 @@
                 <TextBlock VerticalAlignment="Center">
             		<Run Text="Or..."/>
                 </TextBlock>
-                <Button x:Name="haveSnack" Content="Have a snack!" HorizontalAlignment="Center" Margin="10,10,10,10" Background="#66C32E2E"/>
+                <Button x:Name="haveSnack" Content="Have a snack!" HorizontalAlignment="Center" Margin="10,10,10,10" Click="haveSnack_Click" Background="#6617DC17"/>
 
             </StackPanel>
 
+            <StackPanel x:Name="bottomSp" Orientation="Horizontal" Margin="10,0" HorizontalAlignment="Center">
+                <StackPanel x:Name="yourDaySP" Margin="10,10,10,10">
+
+                    <TextBlock Margin="0,0,0,10" FontWeight="Bold" Foreground="Blue">Your day</TextBlock>
+
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock x:Name="tbEnergy">Energy</TextBlock>
+                        <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
+                        <Rectangle x:Name="rectEnergy" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Left" >
+                        <TextBlock x:Name="tbFat">Fat</TextBlock>
+                        <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
+                        <Rectangle x:Name="rectFat" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left"  >
+                        <TextBlock x:Name="tbSaturates">Saturates</TextBlock>
+                        <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
+                        <Rectangle x:Name="rectSaturates" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left"  >
+                        <TextBlock x:Name="tbSugar">Sugar</TextBlock>
+                        <Rectangle Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
+                        <Rectangle x:Name="rectSugar" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left" >
+                        <TextBlock x:Name="tbSalt">Salt</TextBlock>
+                        <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
+                        <Rectangle x:Name="rectSalt" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                </StackPanel>
+                <StackPanel x:Name="reportsSP" HorizontalAlignment="Right" Margin="20,10,0,0">
+                    <TextBlock Margin="0,0,0,10" FontWeight="Bold" Foreground="Red">Reports</TextBlock>
+
+                    <Button x:Name="btnDatailDay" Content="Day detailed" Margin="10" Background="#66FF0000"></Button>
+                    <Button x:Name="btnDatailPast" Content="Past detailed" Margin="10" Background="#66FF0000"></Button>
+
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
-        <Button x:Name="btnMenu" Content="" HorizontalAlignment="Right" Margin="10,10,0,0" VerticalAlignment="Top"
-                RenderTransformOrigin="-0.947,0.208"  Height="32" Width="60">
-            <Button.Background>
-                <ImageBrush Stretch="Fill" ImageSource="Assets/threelines.png"/>
-            </Button.Background>
-            <Button.Flyout>
-                <MenuFlyout Placement="Bottom">
-                    <MenuFlyoutItem Text="Edit user info" Click="UserEditBtn_Click" />
-                    <MenuFlyoutItem Text="Add a meal" Click="AddMealbtn_Click" />
-                    <MenuFlyoutItem Text="List meals" Click="ListMealbtn_Click" />
+            
+        <StackPanel x:Name="headerSP" Orientation="Horizontal" Height="45" HorizontalAlignment="Stretch" Margin="40,10,40,0" VerticalAlignment="Top">
+            <StackPanel x:Name="dateSp" HorizontalAlignment="Left" Width="140" Margin="0" VerticalAlignment="Center">
+                <TextBlock x:Name="tbDate" TextWrapping="Wrap" Text="Date" Height="25"  HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" Height="45" Width="162" x:Name="menuSp" Margin="0">
+                <Button x:Name="btnMenu" Content="" HorizontalAlignment="Right" Margin="0,10,0,0" VerticalAlignment="Center"
+            		RenderTransformOrigin="-0.947,0.208"  Height="32" Width="60" HorizontalContentAlignment="Right">
+                    <Button.Background>
+                        <ImageBrush Stretch="Fill" ImageSource="Assets/threelines.png"/>
+                    </Button.Background>
+                    <Button.Flyout>
+                        <MenuFlyout Placement="Bottom">
+                            <MenuFlyoutItem Text="Edit user info" Click="UserEditBtn_Click" />
+                            <MenuFlyoutItem Text="Add a meal" Click="AddMealbtn_Click" />
+                            <MenuFlyoutItem Text="List meals" Click="ListMealbtn_Click" />
 
-                </MenuFlyout>
-            </Button.Flyout>
+                        </MenuFlyout>
+                    </Button.Flyout>
 
-        </Button>
-
-
+                </Button>
+            </StackPanel>
+         </StackPanel>
+       
 
     </Grid>
 </Page>

@@ -32,6 +32,16 @@ namespace MobileAppsProject.Pages
 
             var currentView = SystemNavigationManager.GetForCurrentView();
             currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += (s, a) =>
+            {
+                if (Frame.CanGoBack)
+                {
+                    Frame.GoBack();
+                    a.Handled = true;
+                }
+            };
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -67,8 +77,10 @@ namespace MobileAppsProject.Pages
             meal.Sugar = Convert.ToInt32(this.txtSugar.Text);
             meal.Salt = Convert.ToInt32(this.txtSalt.Text);
             meal.Kind = this.Kind.SelectedIndex;
-                
-            
+            meal.PicPath = "Assets/meals/example.jpeg";
+
+
+
 
             MealDB mdb = new MealDB(meal);
             mdb.save();

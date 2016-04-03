@@ -1,5 +1,6 @@
 App.xbf
 MainPage.xbf
+Pages\HaveMeal.xbf
 Pages\MealEdit.xbf
 Pages\MealList.xbf
 Pages\UserEdit.xbf

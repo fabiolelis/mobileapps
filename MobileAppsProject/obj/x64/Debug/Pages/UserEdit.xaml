@@ -8,11 +8,12 @@
 	mc:Ignorable="d">
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
 			<Pivot>
 
 				<PivotItem Header="You">
 					<Grid>
-					<StackPanel Margin="50,50,50,10" >
+					<StackPanel  >
 
 						<TextBlock  TextWrapping="Wrap" Text="Name: "/>
 						<TextBox x:ConnectionId='12' x:Name="txtName" TextWrapping="Wrap" />
@@ -30,7 +31,7 @@
 					<StackPanel>
 						<TextBlock  TextWrapping="Wrap" Text="Wake up time " />
 						<TimePicker x:ConnectionId='7' x:Name="timeWakeUpTime"  />
-                        <TextBlock  TextWrapping="Wrap" Text="Bed time " />
+                        <TextBlock  TextWrapping="Wrap" Text="Breakfest time " />
                         <TimePicker x:ConnectionId='8' x:Name="timeBreakfestTime"  />
                         <TextBlock  TextWrapping="Wrap" Text="Lunch time " />
 						<TimePicker x:ConnectionId='9' x:Name="timeLunchTime"  />
@@ -45,21 +46,22 @@
 						<Grid>
 					<StackPanel>
 						<TextBlock  TextWrapping="Wrap" Text="Energy (kcal)" />
-						<TextBox x:ConnectionId='1' x:Name="txtEnergy" TextWrapping="Wrap" Text="2000" />
+						<TextBox x:ConnectionId='2' x:Name="txtEnergy" TextWrapping="Wrap" Text="2000" />
 						<TextBlock  TextWrapping="Wrap" Text="Fat (g)" />
-						<TextBox x:ConnectionId='2' x:Name="txtFat" TextWrapping="Wrap" Text="70"/>
+						<TextBox x:ConnectionId='3' x:Name="txtFat" TextWrapping="Wrap" Text="70"/>
 						<TextBlock  TextWrapping="Wrap" Text="Saturates (g) " />
-						<TextBox x:ConnectionId='3' x:Name="txtSaturates" TextWrapping="Wrap" Text="20" />
+						<TextBox x:ConnectionId='4' x:Name="txtSaturates" TextWrapping="Wrap" Text="20" />
 						<TextBlock  TextWrapping="Wrap" Text="Sugar (g) " />
-						<TextBox x:ConnectionId='4' x:Name="txtSugar" TextWrapping="Wrap" Text="90"/>
+						<TextBox x:ConnectionId='5' x:Name="txtSugar" TextWrapping="Wrap" Text="90"/>
 						<TextBlock  TextWrapping="Wrap" Text="Salt (g) " />
-						<TextBox x:ConnectionId='5' x:Name="txtSalt" TextWrapping="Wrap" Text="6" />
-						<Button x:ConnectionId='6' x:Name="SaveBtn"                       >Save</Button>
+						<TextBox x:ConnectionId='6' x:Name="txtSalt" TextWrapping="Wrap" Text="6" />
 					</StackPanel>
 				</Grid>
 				</PivotItem>
 			</Pivot>
-			
-	</Grid>
+            <Button x:ConnectionId='1' x:Name="SaveBtn" HorizontalAlignment="Right"                       Content="Save" VerticalAlignment="Top" Margin="20,20,15,20" Width="75"/>
+        </StackPanel>
+
+    </Grid>
 </Page>
 
