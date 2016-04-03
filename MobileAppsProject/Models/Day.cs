@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite.Net.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,32 @@ namespace MobileAppsProject.Models
 {
     class Day
     {
+        private int _dayID;
         private User _user;
         private List<Meal> _meals;
         private int _energy;
         private int _fat;
         private int _saturates;
         private int _sugars;
+        private DateTime _date;
+        private int lastMeal;
+
+        [Column("UserID")]
+        [PrimaryKey]
+        [NotNull]
+        [AutoIncrement]
+        public int DayID
+        {
+            get
+            {
+                return _dayID;
+            }
+
+            set
+            {
+                _dayID = value;
+            }
+        }
 
         internal User User
         {
@@ -90,6 +111,32 @@ namespace MobileAppsProject.Models
             set
             {
                 _sugars = value;
+            }
+        }
+
+        public DateTime Date
+        {
+            get
+            {
+                return _date;
+            }
+
+            set
+            {
+                _date = value;
+            }
+        }
+
+        public int LastMeal
+        {
+            get
+            {
+                return lastMeal;
+            }
+
+            set
+            {
+                lastMeal = value;
             }
         }
     }

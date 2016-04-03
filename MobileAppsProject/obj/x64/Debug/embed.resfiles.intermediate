@@ -1,4 +1,5 @@
 App.xbf
 MainPage.xbf
-Pages\BlankPage1.xbf
+Pages\MealEdit.xbf
+Pages\MealList.xbf
 Pages\UserEdit.xbf

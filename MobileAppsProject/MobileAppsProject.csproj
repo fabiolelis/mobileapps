@@ -98,6 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Business\DayDB.cs" />
     <Compile Include="Business\MealDB.cs" />
     <Compile Include="Business\UserDB.cs" />
     <Compile Include="MainPage.xaml.cs">
