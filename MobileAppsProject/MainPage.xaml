@@ -70,8 +70,7 @@
                 <StackPanel x:Name="reportsSP" HorizontalAlignment="Right" Margin="20,10,0,0">
                     <TextBlock Margin="0,0,0,10" FontWeight="Bold" Foreground="Red">Reports</TextBlock>
 
-                    <Button x:Name="btnDatailDay" Content="Day detailed" Margin="10" Background="#66FF0000"></Button>
-                    <Button x:Name="btnDatailPast" Content="Past detailed" Margin="10" Background="#66FF0000"></Button>
+                    <Button x:Name="btnDatailPast" Content="Days detailed" Margin="10" Background="#66FF0000" Click="btnDatailPast_Click"></Button>
 
                 </StackPanel>
             </StackPanel>

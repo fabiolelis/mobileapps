@@ -132,23 +132,25 @@ namespace MobileAppsProject.MobileAppsProject_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[7];
+            _typeNameTable = new string[8];
             _typeNameTable[0] = "MobileAppsProject.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "MobileAppsProject.Pages.HaveMeal";
             _typeNameTable[4] = "MobileAppsProject.Pages.MealList";
             _typeNameTable[5] = "MobileAppsProject.Pages.MealEdit";
-            _typeNameTable[6] = "MobileAppsProject.Pages.UserEdit";
+            _typeNameTable[6] = "MobileAppsProject.Pages.Reports";
+            _typeNameTable[7] = "MobileAppsProject.Pages.UserEdit";
 
-            _typeTable = new global::System.Type[7];
+            _typeTable = new global::System.Type[8];
             _typeTable[0] = typeof(global::MobileAppsProject.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::MobileAppsProject.Pages.HaveMeal);
             _typeTable[4] = typeof(global::MobileAppsProject.Pages.MealList);
             _typeTable[5] = typeof(global::MobileAppsProject.Pages.MealEdit);
-            _typeTable[6] = typeof(global::MobileAppsProject.Pages.UserEdit);
+            _typeTable[6] = typeof(global::MobileAppsProject.Pages.Reports);
+            _typeTable[7] = typeof(global::MobileAppsProject.Pages.UserEdit);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -187,7 +189,8 @@ namespace MobileAppsProject.MobileAppsProject_XamlTypeInfo
         private object Activate_3_HaveMeal() { return new global::MobileAppsProject.Pages.HaveMeal(); }
         private object Activate_4_MealList() { return new global::MobileAppsProject.Pages.MealList(); }
         private object Activate_5_MealEdit() { return new global::MobileAppsProject.Pages.MealEdit(); }
-        private object Activate_6_UserEdit() { return new global::MobileAppsProject.Pages.UserEdit(); }
+        private object Activate_6_Reports() { return new global::MobileAppsProject.Pages.Reports(); }
+        private object Activate_7_UserEdit() { return new global::MobileAppsProject.Pages.UserEdit(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -235,9 +238,16 @@ namespace MobileAppsProject.MobileAppsProject_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 6:   //  MobileAppsProject.Pages.UserEdit
+            case 6:   //  MobileAppsProject.Pages.Reports
                 userType = new global::MobileAppsProject.MobileAppsProject_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_UserEdit;
+                userType.Activator = Activate_6_Reports;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  MobileAppsProject.Pages.UserEdit
+                userType = new global::MobileAppsProject.MobileAppsProject_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_7_UserEdit;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

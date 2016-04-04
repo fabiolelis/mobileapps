@@ -216,3 +216,8 @@ C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileApp
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x64\Debug\Pages\HaveMeal.xaml
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x64\Debug\Pages\HaveMeal.xbf
 C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\Pages\HaveMeal.xbf
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\Pages\Reports.xbf
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x64\Debug\Pages\Reports.g.i.cs
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x64\Debug\Pages\Reports.g.cs
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x64\Debug\Pages\Reports.xaml
+C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x64\Debug\Pages\Reports.xbf

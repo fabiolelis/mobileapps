@@ -399,6 +399,12 @@ namespace MobileAppsProject
         {
             Frame.Navigate(typeof(HaveMeal), new HaveMealClass(_day, "Snack"));
         }
+
+        private void btnDatailPast_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Reports));
+
+        }
     }
 
 }

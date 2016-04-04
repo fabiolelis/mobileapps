@@ -30,6 +30,28 @@ namespace MobileAppsProject.Business
             this._Day = Day;
         }
 
+        public static Day getDatByDate(DateTimeOffset dt)
+        {
+            Day d;
+
+            var path = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "db.sqlite");
+
+            using (SQLite.Net.SQLiteConnection conn = new SQLite.Net.SQLiteConnection(new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT(), path))
+            {
+                d = (from m in conn.Table<Day>()
+                     let convertedDate = (DateTime)m.Date
+                     where (m.Date.Day == dt.Date.Day) &&
+                             (m.Date.Month == dt.Date.Month) &&
+                              (m.Date.Year == dt.Date.Year)
+                     
+                     select m).ToList().FirstOrDefault();
+
+            }
+
+
+            return d;
+        }
+
         public static List<Day> getAll()
         {
             List<Day> lm = new List<Day> { };

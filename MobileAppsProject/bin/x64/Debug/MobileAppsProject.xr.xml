@@ -128,6 +128,10 @@
       <RootProperty Name="IsSelected" />
     </RootType>
     <RootType FullName="MobileAppsProject.Pages.MealEdit" />
+    <RootType FullName="Windows.UI.Xaml.Controls.DatePicker">
+      <RootProperty Name="VerticalAlignment" />
+    </RootType>
+    <RootType FullName="MobileAppsProject.Pages.Reports" />
     <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
       <RootProperty Name="Items" />
     </RootType>
