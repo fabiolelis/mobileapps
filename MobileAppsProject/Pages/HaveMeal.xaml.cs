@@ -100,8 +100,13 @@ namespace MobileAppsProject.Pages
             tbSaturates.Text = ("Saturates " + meal.Saturates.ToString());
             tbSugar.Text = ("Sugar " + meal.Sugar.ToString());
             tbSalt.Text = ("Salt " + meal.Salt.ToString());
-            imgMeal.Source = new BitmapImage(new Uri("ms-appx:///"+meal.PicPath, UriKind.RelativeOrAbsolute));
-            
+            if(meal.UserSet)
+                imgMeal.Source = new BitmapImage(new Uri("ms-appx:///"+meal.PicPath, UriKind.RelativeOrAbsolute));
+            else
+            {
+                imgMeal.Source = new BitmapImage(new Uri( meal.PicPath));
+            }
+
         }
     }
 }

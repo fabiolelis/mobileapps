@@ -11,20 +11,20 @@
         <StackPanel Margin="50,50,50,10" >
 
             <TextBlock  TextWrapping="Wrap" Text="Name: "/>
-            <TextBox x:Name="txtName" TextWrapping="Wrap" />
+            <TextBox x:ConnectionId='1' x:Name="txtName" TextWrapping="Wrap" />
             <TextBlock  TextWrapping="Wrap" Text="Energy: "/>
-            <TextBox x:Name="txtEnergy" TextWrapping="Wrap" />
+            <TextBox x:ConnectionId='2' x:Name="txtEnergy" TextWrapping="Wrap" />
             <TextBlock  TextWrapping="Wrap" Text="Fat: "/>
-            <TextBox x:Name="txtFat" TextWrapping="Wrap" />
+            <TextBox x:ConnectionId='3' x:Name="txtFat" TextWrapping="Wrap" />
             <TextBlock  TextWrapping="Wrap" Text="Saturates: "/>
-            <TextBox x:Name="txtSaturates" TextWrapping="Wrap" />
+            <TextBox x:ConnectionId='4' x:Name="txtSaturates" TextWrapping="Wrap" />
             <TextBlock  TextWrapping="Wrap" Text="Sugar: "/>
-            <TextBox x:Name="txtSugar" TextWrapping="Wrap" />
+            <TextBox x:ConnectionId='5' x:Name="txtSugar" TextWrapping="Wrap" />
             <TextBlock  TextWrapping="Wrap" Text="Salt: "/>
-            <TextBox x:Name="txtSalt" TextWrapping="Wrap" />
+            <TextBox x:ConnectionId='6' x:Name="txtSalt" TextWrapping="Wrap" />
 
             <TextBlock  TextWrapping="Wrap" Text="Kind: "/>
-            <ComboBox x:Name="Kind">
+            <ComboBox x:ConnectionId='7' x:Name="Kind">
                 <ComboBoxItem Tag="BREAKFEST">Breakfest</ComboBoxItem>
                 <ComboBoxItem Tag="LUNCH">Lunch</ComboBoxItem>
                 <ComboBoxItem Tag="DINNER">Dinner</ComboBoxItem>
@@ -34,10 +34,11 @@
 
             <Image Width="300"></Image>
 
-            <Button x:Name="SaveBtn"  Click="SaveBtn_Click">Save</Button>
+            <Button x:ConnectionId='8' x:Name="SaveBtn"                       >Save</Button>
 
 
 
         </StackPanel>
     </Grid>
 </Page>
+

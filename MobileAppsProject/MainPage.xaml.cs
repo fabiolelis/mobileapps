@@ -59,9 +59,8 @@ namespace MobileAppsProject
                 myStopwatchTimer.Start();
 
                 this.tbDate.Text = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
-                // _day = null;
-
-            
+            // _day = null;
+                //NetworkService.updateMeals();
 
         }
 

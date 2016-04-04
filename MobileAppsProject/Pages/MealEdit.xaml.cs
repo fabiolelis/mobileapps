@@ -121,10 +121,6 @@ namespace MobileAppsProject.Pages
 
         }
 
-        private void takePic_Click(object sender, RoutedEventArgs e)
-        {
-            getImage();
-
-        }
+        
     }
 }

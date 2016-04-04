@@ -58,7 +58,8 @@ namespace MobileAppsProject.Business
 
                 if (!infoTable.Any())
                 {
-                    //conn.DropTable<Meal>();
+                   // conn.DropTable<Meal>();
+                    //return 0;
                     conn.CreateTable<Meal>();
 
                 }
