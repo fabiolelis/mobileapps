@@ -23,6 +23,7 @@ using System.Threading.Tasks;
 using Windows.System.Threading;
 using Windows.UI;
 using Windows.UI.Notifications;
+using MobileAppsProject.Network;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace MobileAppsProject
@@ -187,6 +188,9 @@ namespace MobileAppsProject
                 }
 
                 this.tbDate.Text = DateTime.Now.Day.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
+
+                //Update meals from servers everyday
+                NetworkService.updateMeals();
 
             }
 
@@ -363,7 +367,6 @@ namespace MobileAppsProject
         {
             Frame.Navigate(typeof(MealList));
         }
-
         private void AddMealbtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MealEdit));

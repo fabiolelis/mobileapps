@@ -19,6 +19,7 @@ namespace MobileAppsProject.Models
         private int _sugar;
         private int _salt;
         private string _picPath;
+        private Boolean _userSet = true;
 
         /* 0 = Breakfest, 1 = LUNCH, 2 = DINNER, 3 = SNACK */
         private int _kind;
@@ -163,6 +164,19 @@ namespace MobileAppsProject.Models
             set
             {
                 _picPath = value;
+            }
+        }
+
+        public bool UserSet
+        {
+            get
+            {
+                return _userSet;
+            }
+
+            set
+            {
+                _userSet = value;
             }
         }
 

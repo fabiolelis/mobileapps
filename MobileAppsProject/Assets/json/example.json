@@ -1,0 +1,26 @@
+{
+  "Meals":[
+    {
+        "name" : "Toast (json1)",
+        "energy" : 150,
+        "fat" : 10,
+        "saturates" : 3,
+        "sugar" : 2,
+        "salt" : 3,
+        "pic_path" :  "Assets/meals/example.jpeg",
+        "user_set" : false,
+        "kind" : 0
+    },
+    {
+        "name" : "Pasta",
+        "energy" : 501,
+        "fat" : 10,
+        "saturates" : 3,
+        "sugar" : 2,
+        "salt" : 3,
+        "pic_path" :  "Assets/meals/example.jpeg",
+        "user_set" : false,
+        "kind" : 0
+    }
+  ]
+}

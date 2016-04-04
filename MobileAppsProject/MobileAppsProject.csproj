@@ -92,6 +92,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Assets\json\example.json" />
+    <None Include="Network\example.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +112,7 @@
     <Compile Include="Models\HaveMealClass.cs" />
     <Compile Include="Models\Meal.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Network\NetworkService.cs" />
     <Compile Include="Pages\HaveMeal.xaml.cs">
       <DependentUpon>HaveMeal.xaml</DependentUpon>
     </Compile>
