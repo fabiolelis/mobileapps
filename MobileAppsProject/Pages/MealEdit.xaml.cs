@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Navigation;
 using MobileAppsProject.Models;
 using Windows.UI.Core;
 using MobileAppsProject.Business;
+using Windows.Media.Capture;
+using Windows.Storage;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -62,9 +64,30 @@ namespace MobileAppsProject.Pages
 
 
             }
+           
         }
+
+        private async void getImage()
+        {
+            CameraCaptureUI captureUI = new CameraCaptureUI();
+            captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
+            captureUI.PhotoSettings.CroppedSizeInPixels = new Size(200, 200);
+
+            StorageFile photo = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
+
+            if (photo == null)
+            {
+                // User cancelled photo capture
+                return;
+            }
+        }
+
+
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
+            getImage();
+
+            /*
             if (meal == null)
             {
                 meal = new Meal();
@@ -86,7 +109,7 @@ namespace MobileAppsProject.Pages
             mdb.save();
 
             Frame.Navigate(typeof(MainPage));
-
+            */
 
         }
     }

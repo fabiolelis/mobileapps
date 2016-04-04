@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>8da69756-fe80-44ea-a93a-a1ab3a8462c1</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x64\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>D906BA8E1CC631C57F1A377699795CA30A2B0CD3A2E300E997EC11D602591839</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>979E32FA6A1785D0B4119F90706C0F7E0E98424399CF6B3C07E9F3B155C49E68</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>8da69756-fe80-44ea-a93a-a1ab3a8462c1_1.0.0.0_x64__6jn63bqejzbv2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8da69756-fe80-44ea-a93a-a1ab3a8462c1_6jn63bqejzbv2!App</RegisteredUserModeAppID>
     <RegisteredPackageID>8da69756-fe80-44ea-a93a-a1ab3a8462c1</RegisteredPackageID>
@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-04-04T18:31:00.301</Modified>
+      <Modified>2016-04-04T18:56:32.491</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\MobileAppsProject.exe">
       <PackagePath>entrypoint\MobileAppsProject.exe</PackagePath>
-      <Modified>2016-04-04T18:30:58.741</Modified>
+      <Modified>2016-04-04T18:49:31.905</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -531,11 +531,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-04-04T17:30:58.787</Modified>
+      <Modified>2016-04-04T18:56:32.011</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\Core\MobileAppsProject.exe">
       <PackagePath>MobileAppsProject.exe</PackagePath>
-      <Modified>2016-04-04T18:31:00.273</Modified>
+      <Modified>2016-04-04T18:56:32.470</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

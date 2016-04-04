@@ -93,7 +93,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Assets\json\example.json" />
-    <None Include="Network\example.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
