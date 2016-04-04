@@ -73,34 +73,65 @@ namespace MobileAppsProject
             }
             
             updateDay();
-            updateCountdown();
-            updateDayReport();
             checkAndNotify();
+            updateDayReport();
 
         }
 
         public void checkAndNotify()
         {
             //check if it is time
+            string current = getCurrentMeal();
 
-            //notify:
-            string toast = "<toast>"
-                    + "<visual>"
-                    + "<binding template = \"ToastGeneric\" >"
-                    + "<text> Time to eat! </text>"
-                    + "</binding>"
-                    + "</visual>"
-                    + "<audio src=\"ms - winsoundevent:Notification.Reminder\"/>"
-                    + "</toast>";
+            if (!current.Equals(""))
+            {
+
+                Eat eat = null;
+                eat = EatDB.getByDayID(_day.DayID).Where(et => et.Kind == current).First() as Eat;
+
+                if (!eat.Notified)
+                {
 
 
-            Windows.Data.Xml.Dom.XmlDocument toastDOM = new Windows.Data.Xml.Dom.XmlDocument();
-            toastDOM.LoadXml(toast);
+                    eat.Notified = true;
+                    EatDB edb = new EatDB(eat);
+                    edb.save();
+                    //notify:
+                    string toast = "<toast>"
+                            + "<visual>"
+                            + "<binding template = \"ToastGeneric\" >"
+                            + "<text> Time to eat! </text>"
+                            + "</binding>"
+                            + "</visual>"
+                            + "<audio src=\"ms - winsoundevent:Notification.Reminder\"/>"
+                            + "</toast>";
 
-            ToastNotification toastNotification = new ToastNotification(toastDOM);
 
-            var toastNotifier = Windows.UI.Notifications.ToastNotificationManager.CreateToastNotifier();
-            toastNotifier.Show(toastNotification);
+                    Windows.Data.Xml.Dom.XmlDocument toastDOM = new Windows.Data.Xml.Dom.XmlDocument();
+                    toastDOM.LoadXml(toast);
+
+                    ToastNotification toastNotification = new ToastNotification(toastDOM);
+
+                    var toastNotifier = Windows.UI.Notifications.ToastNotificationManager.CreateToastNotifier();
+                    toastNotifier.Show(toastNotification);
+
+                }
+                this.tbNextMeal.Text = "It is time for your";
+                this.countdown.Text = current + " now!";
+                rectTime.Visibility = Visibility.Visible;
+                rectTimeBG.Visibility = Visibility.Visible;
+                countdown.Visibility = Visibility.Visible;
+
+            }
+            else
+            {
+                rectTime.Visibility = Visibility.Collapsed;
+                rectTimeBG.Visibility = Visibility.Collapsed;
+                countdown.Visibility = Visibility.Collapsed;
+                updateCountdown();
+            }
+
+
         }
 
         public void getStorageInfo()
@@ -165,9 +196,10 @@ namespace MobileAppsProject
 
         public void updateCountdown()
         {
-            if (DateTime.Now.TimeOfDay.TotalMinutes > user.DinnerTime)
+            if(EatDB.getByDayID(_day.DayID).Where(d => d.Done == false).ToList().Count == 0 ||
+                DateTime.Now.TimeOfDay.TotalMinutes > user.DinnerTime)
             {
-                this.countdown.Text = "no more food today...";
+                this.tbNextMeal.Text = "no more food today...";
                 this.rectTime.Width = 0;
             }
             else
@@ -176,11 +208,12 @@ namespace MobileAppsProject
                 string nextMeal = getNextMeal(ref nextMealTime);
                 TimeSpan until = untilNext(nextMeal);
 
-                this.countdown.Text = until.Hours.ToString() + " hours and " + until.Minutes.ToString() + " minutes, " + nextMeal;
+                this.tbNextMeal.Text = nextMeal + " in";
+                this.countdown.Text = until.Hours.ToString() + " hours and " + until.Minutes.ToString() + " minutes";
 
 
                 double ratio = (DateTime.Now.TimeOfDay.TotalMinutes - (double)_day.LastMeal) / (double)nextMealTime;
-                this.rectTime.Width = 200 * ratio;
+                this.rectTime.Width  = ratio < 1 ? 200 * ratio : 1;
             }
         }
 
@@ -233,23 +266,52 @@ namespace MobileAppsProject
             }
         }
 
+        public string getCurrentMeal()
+        {
+            string currentMeal = "";
+            Eat eat = EatDB.getByDayID(_day.DayID).Where(et => et.Kind == "Dinner").First() as Eat;
+            if (user.DinnerTime < DateTime.Now.TimeOfDay.TotalMinutes && user.DinnerTime +60  > DateTime.Now.TimeOfDay.TotalMinutes  && !eat.Done && !eat.Skipped)
+            {
+                currentMeal = "Dinner";
+            }
+
+            eat = EatDB.getByDayID(_day.DayID).Where(et => et.Kind == "Lunch").First() as Eat;
+            if (user.LunchTime < DateTime.Now.TimeOfDay.TotalMinutes && user.LunchTime +60 > DateTime.Now.TimeOfDay.TotalMinutes && !eat.Done && !eat.Skipped)
+            {
+                currentMeal = "Lunch";
+            }
+
+            eat = EatDB.getByDayID(_day.DayID).Where(et => et.Kind == "Breakfest").First() as Eat;
+            if (user.BreakfestTime < DateTime.Now.TimeOfDay.TotalMinutes && user.BreakfestTime +60 > DateTime.Now.TimeOfDay.TotalMinutes && !eat.Done && !eat.Skipped)
+            {
+                currentMeal = "Breakfest";
+
+            }
+            nextMeal = currentMeal;
+            return currentMeal;
+
+        }
 
         public string getNextMeal(ref int nextMealTime)
         {
-            if (user.DinnerTime > DateTime.Now.TimeOfDay.TotalMinutes)
+            nextMeal = "";
+            Eat eat = EatDB.getByDayID(_day.DayID).Where(et => et.Kind == "Dinner").First() as Eat;
+            if (user.DinnerTime > DateTime.Now.TimeOfDay.TotalMinutes && !eat.Done && !eat.Skipped)
             {
                 nextMeal = "Dinner";
                 nextMealTime = user.DinnerTime;
             }
 
-            if (user.LunchTime > DateTime.Now.TimeOfDay.TotalMinutes)
+            eat = EatDB.getByDayID(_day.DayID).Where(et => et.Kind == "Lunch").First() as Eat;
+            if (user.LunchTime > DateTime.Now.TimeOfDay.TotalMinutes && !eat.Done && !eat.Skipped)
             {
                 nextMeal = "Lunch";
                 nextMealTime = user.LunchTime;
 
             }
 
-            if (user.BreakfestTime > DateTime.Now.TimeOfDay.TotalMinutes)
+            eat = EatDB.getByDayID(_day.DayID).Where(et => et.Kind == "Breakfest").First() as Eat;
+            if (user.BreakfestTime > DateTime.Now.TimeOfDay.TotalMinutes && !eat.Done && !eat.Skipped)
             {
                 nextMeal = "Breakfest";
                 nextMealTime = user.BreakfestTime;
@@ -333,7 +395,7 @@ namespace MobileAppsProject
 
         private void haveSnack_Click(object sender, RoutedEventArgs e)
         {
-
+            Frame.Navigate(typeof(HaveMeal), new HaveMealClass(_day, "Snack"));
         }
     }
 

@@ -15,13 +15,13 @@
 
         <StackPanel x:Name="spBody" Margin="40,50" HorizontalAlignment="Center">
             <TextBlock x:Name="helloUser" Height="65" FontSize="24" FontWeight="SemiBold">Hello</TextBlock>
-            <TextBlock HorizontalAlignment="Center">
-            	<Run Text="You have"/>
-            </TextBlock>
+
+            <TextBlock x:Name="tbNextMeal" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333" Foreground="#FF17DC17">_</TextBlock>
+
             <TextBlock x:Name="countdown" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333" Foreground="#FF17DC17">_</TextBlock>
-            <TextBlock HorizontalAlignment="Center"> until your next meal</TextBlock>
+            
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,10,40,10">
-                <Rectangle  Fill="Gray" Opacity="0.2" Width="200" Height="20" Margin="0" />
+                <Rectangle x:Name="rectTimeBG" Fill="Gray" Opacity="0.2" Width="200" Height="20" Margin="0" />
                 <Rectangle x:Name="rectTime" Fill="#FF17DC17" Width="150" Height="20" Margin="0,-20,0,0" HorizontalAlignment="Left"/>
             </StackPanel>
 

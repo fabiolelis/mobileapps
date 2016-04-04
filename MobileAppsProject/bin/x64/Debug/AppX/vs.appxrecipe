@@ -10,7 +10,7 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>8da69756-fe80-44ea-a93a-a1ab3a8462c1</PackageIdentityName>
     <IntermediateOutputPath>C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x64\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>17C28A89B3A85B5F544BA8C47CD9E357F7949BBA2B6F532689515EED55938E23</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>D906BA8E1CC631C57F1A377699795CA30A2B0CD3A2E300E997EC11D602591839</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>8da69756-fe80-44ea-a93a-a1ab3a8462c1_1.0.0.0_x64__6jn63bqejzbv2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8da69756-fe80-44ea-a93a-a1ab3a8462c1_6jn63bqejzbv2!App</RegisteredUserModeAppID>
     <RegisteredPackageID>8da69756-fe80-44ea-a93a-a1ab3a8462c1</RegisteredPackageID>
@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-04-03T23:02:01.541</Modified>
+      <Modified>2016-04-04T04:36:18.243</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\MobileAppsProject.exe">
       <PackagePath>entrypoint\MobileAppsProject.exe</PackagePath>
-      <Modified>2016-04-03T23:01:58.158</Modified>
+      <Modified>2016-04-04T04:36:12.972</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -474,6 +474,11 @@
       <PackagePath>Assets\meals\example.jpeg</PackagePath>
       <Modified>2016-04-03T17:55:01.789</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2016-04-04T04:21:55.138</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\threelines.png">
       <PackagePath>Assets\threelines.png</PackagePath>
       <Modified>2016-04-01T19:01:12.987</Modified>
@@ -485,17 +490,17 @@
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T21:09:42.000</Modified>
+      <Modified>2016-04-04T04:09:15.009</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T21:09:42.000</Modified>
+      <Modified>2016-04-04T04:19:59.133</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T21:09:42.000</Modified>
+      <Modified>2016-04-04T04:21:55.138</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
@@ -505,7 +510,7 @@
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-10T21:09:42.000</Modified>
+      <Modified>2016-04-04T04:22:42.242</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
@@ -526,11 +531,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-04-03T22:33:26.413</Modified>
+      <Modified>2016-04-04T04:36:16.863</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\Core\MobileAppsProject.exe">
       <PackagePath>MobileAppsProject.exe</PackagePath>
-      <Modified>2016-04-03T23:02:01.514</Modified>
+      <Modified>2016-04-04T04:36:18.051</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

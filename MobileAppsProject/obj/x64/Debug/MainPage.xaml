@@ -15,63 +15,63 @@
 
         <StackPanel x:ConnectionId='1' x:Name="spBody" Margin="40,50" HorizontalAlignment="Center">
             <TextBlock x:ConnectionId='10' x:Name="helloUser" Height="65" FontSize="24" FontWeight="SemiBold">Hello</TextBlock>
-            <TextBlock HorizontalAlignment="Center">
-            	<Run Text="You have"/>
-            </TextBlock>
-            <TextBlock x:ConnectionId='11' x:Name="countdown" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333" Foreground="#FF17DC17">_</TextBlock>
-            <TextBlock HorizontalAlignment="Center"> until your next meal</TextBlock>
+
+            <TextBlock x:ConnectionId='11' x:Name="tbNextMeal" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333" Foreground="#FF17DC17">_</TextBlock>
+
+            <TextBlock x:ConnectionId='12' x:Name="countdown" HorizontalAlignment="Center" Margin="0" Height="62" VerticalAlignment="Center" Width="269" TextAlignment="Center" LineHeight="16" FontSize="21.333" Foreground="#FF17DC17">_</TextBlock>
+            
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,10,40,10">
-                <Rectangle  Fill="Gray" Opacity="0.2" Width="200" Height="20" Margin="0" />
-                <Rectangle x:ConnectionId='29' x:Name="rectTime" Fill="#FF17DC17" Width="150" Height="20" Margin="0,-20,0,0" HorizontalAlignment="Left"/>
+                <Rectangle x:ConnectionId='30' x:Name="rectTimeBG" Fill="Gray" Opacity="0.2" Width="200" Height="20" Margin="0" />
+                <Rectangle x:ConnectionId='31' x:Name="rectTime" Fill="#FF17DC17" Width="150" Height="20" Margin="0,-20,0,0" HorizontalAlignment="Left"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Height="111" Margin="10">
-                <Button x:ConnectionId='27' x:Name="haveMeal" Content="Have it now!" HorizontalAlignment="Center" Margin="10,10,10,10"                        Background="#6617DC17"/>
+                <Button x:ConnectionId='28' x:Name="haveMeal" Content="Have it now!" HorizontalAlignment="Center" Margin="10,10,10,10"                        Background="#6617DC17"/>
                 <TextBlock VerticalAlignment="Center">
             		<Run Text="Or..."/>
                 </TextBlock>
-                <Button x:ConnectionId='28' x:Name="haveSnack" Content="Have a snack!" HorizontalAlignment="Center" Margin="10,10,10,10"                         Background="#6617DC17"/>
+                <Button x:ConnectionId='29' x:Name="haveSnack" Content="Have a snack!" HorizontalAlignment="Center" Margin="10,10,10,10"                         Background="#6617DC17"/>
 
             </StackPanel>
 
-            <StackPanel x:ConnectionId='12' x:Name="bottomSp" Orientation="Horizontal" Margin="10,0" HorizontalAlignment="Center">
-                <StackPanel x:ConnectionId='13' x:Name="yourDaySP" Margin="10,10,10,10">
+            <StackPanel x:ConnectionId='13' x:Name="bottomSp" Orientation="Horizontal" Margin="10,0" HorizontalAlignment="Center">
+                <StackPanel x:ConnectionId='14' x:Name="yourDaySP" Margin="10,10,10,10">
 
                     <TextBlock Margin="0,0,0,10" FontWeight="Bold" Foreground="Blue">Your day</TextBlock>
 
                     <StackPanel HorizontalAlignment="Left">
-                        <TextBlock x:ConnectionId='25' x:Name="tbEnergy">Energy</TextBlock>
+                        <TextBlock x:ConnectionId='26' x:Name="tbEnergy">Energy</TextBlock>
                         <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
-                        <Rectangle x:ConnectionId='26' x:Name="rectEnergy" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                        <Rectangle x:ConnectionId='27' x:Name="rectEnergy" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
                     </StackPanel>
 
                     <StackPanel HorizontalAlignment="Left" >
-                        <TextBlock x:ConnectionId='23' x:Name="tbFat">Fat</TextBlock>
+                        <TextBlock x:ConnectionId='24' x:Name="tbFat">Fat</TextBlock>
                         <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
-                        <Rectangle x:ConnectionId='24' x:Name="rectFat" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                        <Rectangle x:ConnectionId='25' x:Name="rectFat" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left"  >
-                        <TextBlock x:ConnectionId='21' x:Name="tbSaturates">Saturates</TextBlock>
+                        <TextBlock x:ConnectionId='22' x:Name="tbSaturates">Saturates</TextBlock>
                         <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
-                        <Rectangle x:ConnectionId='22' x:Name="rectSaturates" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                        <Rectangle x:ConnectionId='23' x:Name="rectSaturates" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left"  >
-                        <TextBlock x:ConnectionId='19' x:Name="tbSugar">Sugar</TextBlock>
+                        <TextBlock x:ConnectionId='20' x:Name="tbSugar">Sugar</TextBlock>
                         <Rectangle Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
-                        <Rectangle x:ConnectionId='20' x:Name="rectSugar" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                        <Rectangle x:ConnectionId='21' x:Name="rectSugar" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left" >
-                        <TextBlock x:ConnectionId='17' x:Name="tbSalt">Salt</TextBlock>
+                        <TextBlock x:ConnectionId='18' x:Name="tbSalt">Salt</TextBlock>
                         <Rectangle  Fill="Gray" Opacity="0.2" Width="100" Height="10" Margin="0" />
-                        <Rectangle x:ConnectionId='18' x:Name="rectSalt" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
+                        <Rectangle x:ConnectionId='19' x:Name="rectSalt" Fill="Blue" Width="75" Height="10" Margin="0,-10,0,0" HorizontalAlignment="Left"/>
                     </StackPanel>
 
                 </StackPanel>
-                <StackPanel x:ConnectionId='14' x:Name="reportsSP" HorizontalAlignment="Right" Margin="20,10,0,0">
+                <StackPanel x:ConnectionId='15' x:Name="reportsSP" HorizontalAlignment="Right" Margin="20,10,0,0">
                     <TextBlock Margin="0,0,0,10" FontWeight="Bold" Foreground="Red">Reports</TextBlock>
 
-                    <Button x:ConnectionId='15' x:Name="btnDatailDay" Content="Day detailed" Margin="10" Background="#66FF0000"></Button>
-                    <Button x:ConnectionId='16' x:Name="btnDatailPast" Content="Past detailed" Margin="10" Background="#66FF0000"></Button>
+                    <Button x:ConnectionId='16' x:Name="btnDatailDay" Content="Day detailed" Margin="10" Background="#66FF0000"></Button>
+                    <Button x:ConnectionId='17' x:Name="btnDatailPast" Content="Past detailed" Margin="10" Background="#66FF0000"></Button>
 
                 </StackPanel>
             </StackPanel>

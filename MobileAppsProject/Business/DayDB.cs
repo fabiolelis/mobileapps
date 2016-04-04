@@ -69,9 +69,10 @@ namespace MobileAppsProject.Business
             {
                 var infoTable = conn.GetTableInfo("Day");
 
-                //if (!infoTable.Any())
+                if (!infoTable.Any())
                 {
-                    conn.DropTable<Day>();
+                   // conn.DropTable<Day>();
+                   // conn.DropTable<Eat>();
                     conn.CreateTable<Day>();
 
                 }

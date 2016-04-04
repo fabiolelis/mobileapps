@@ -354,6 +354,10 @@
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\meals\example.jpeg">
       <PackagePath>Assets\meals\example.jpeg</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\threelines.png">
       <PackagePath>Assets\threelines.png</PackagePath>
     </AppxPackagedFile>

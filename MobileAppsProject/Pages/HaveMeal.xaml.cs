@@ -65,20 +65,28 @@ namespace MobileAppsProject.Pages
         {
 
             //get eat from day by kind
-            /*
-            _day.Eats.Where(p => p.Kind == _kind).First().Meal = (Meal)cbMeal.SelectedItem;
-            _day.Eats.Where(p => p.Kind == _kind).First().Time = DateTime.Now;
-            _day.Eats.Where(p => p.Kind == _kind).First().Done = true;
+            Meal meal = (Meal)cbMeal.SelectedItem;
 
-            _day.Energy += _day.Eats.Where(p => p.Kind == _kind).First().Meal.Energy;
-            _day.Fat += _day.Eats.Where(p => p.Kind == _kind).First().Meal.Fat;
-            _day.Saturates += _day.Eats.Where(p => p.Kind == _kind).First().Meal.Saturates;
-            _day.Sugars += _day.Eats.Where(p => p.Kind == _kind).First().Meal.Sugar;
-            _day.Salt += _day.Eats.Where(p => p.Kind == _kind).First().Meal.Salt;
+            if (!_kind.Equals("Snack"))
+            {
+                Eat eat = EatDB.getByDayID(_day.DayID).Where(et => et.Kind == _kind).First() as Eat;
+                eat.Time = DateTime.Now;
+                eat.Done = true;
+                EatDB edb = new EatDB(eat);
+                edb.save();
+
+            }
+
+            _day.Energy += meal.Energy;
+            _day.Fat += meal.Fat;
+            _day.Saturates += meal.Saturates;
+            _day.Sugars += meal.Sugar;
+            _day.Salt += meal.Salt;
 
             DayDB ddb = new DayDB(_day);
             ddb.save();
-            */
+            
+            
             
             Frame.Navigate(typeof(MainPage));
         }

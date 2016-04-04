@@ -18,6 +18,8 @@ namespace MobileAppsProject.Models
         private int _dayID;
         private Boolean _notified = false;
 
+        public Eat() { }
+
         public Eat(int dayID, string kind){
             this.DayID = dayID;
             this.Kind = kind;
@@ -115,6 +117,19 @@ namespace MobileAppsProject.Models
             set
             {
                 _dayID = value;
+            }
+        }
+
+        public bool Notified
+        {
+            get
+            {
+                return _notified;
+            }
+
+            set
+            {
+                _notified = value;
             }
         }
     }
