@@ -63,11 +63,11 @@ namespace MobileAppsProject.Pages
 
 
 
-            text = "\n Energy: " + energy;
-            text = "\n Fat: " + fat;
-            text = "\n Saturates: " + saturates;
-            text = "\n Sugar: " + sugar;
-            text = "\n Salt: " + salt;
+            text += "\n Energy: " + energy;
+            text += "\n Fat: " + fat;
+            text += "\n Saturates: " + saturates;
+            text += "\n Sugar: " + sugar;
+            text += "\n Salt: " + salt;
 
             tbDays.MaxLines = 100;
             tbDays.Text = text;
