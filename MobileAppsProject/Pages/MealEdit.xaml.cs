@@ -17,7 +17,8 @@ using Windows.UI.Core;
 using MobileAppsProject.Business;
 using Windows.Media.Capture;
 using Windows.Storage;
-
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.Graphics.Imaging;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace MobileAppsProject.Pages
@@ -80,14 +81,21 @@ namespace MobileAppsProject.Pages
                 // User cancelled photo capture
                 return;
             }
+
+            else { 
+                string strPath = "ms-appx:///Assets/meals";
+                StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(strPath);
+                await photo.MoveAsync(folder);
+                meal.PicPath = photo.Path;
+                
+            }
         }
 
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            getImage();
 
-            /*
+            
             if (meal == null)
             {
                 meal = new Meal();
@@ -109,7 +117,13 @@ namespace MobileAppsProject.Pages
             mdb.save();
 
             Frame.Navigate(typeof(MainPage));
-            */
+            
+
+        }
+
+        private void takePic_Click(object sender, RoutedEventArgs e)
+        {
+            getImage();
 
         }
     }
