@@ -57,7 +57,7 @@ namespace MobileAppsProject.Pages
             cbMeal.SelectedValuePath = "MealID";
 
             cbMeal.SelectedIndex = 0;
-            
+
 
         }
 
@@ -72,9 +72,20 @@ namespace MobileAppsProject.Pages
                 Eat eat = EatDB.getByDayID(_day.DayID).Where(et => et.Kind == _kind).First() as Eat;
                 eat.Time = DateTime.Now;
                 eat.Done = true;
+                eat.Meal = meal;
                 EatDB edb = new EatDB(eat);
                 edb.save();
 
+            }
+            else
+            {
+                Eat eat = new Eat();
+                eat.Time = DateTime.Now;
+                eat.Done = true;
+                eat.Meal = meal;
+                eat.Kind = "Snack";
+                EatDB edb = new EatDB(eat);
+                edb.save();
             }
 
             _day.Energy += meal.Energy;
@@ -85,9 +96,9 @@ namespace MobileAppsProject.Pages
 
             DayDB ddb = new DayDB(_day);
             ddb.save();
-            
-            
-            
+
+
+
             Frame.Navigate(typeof(MainPage));
         }
 
@@ -100,11 +111,11 @@ namespace MobileAppsProject.Pages
             tbSaturates.Text = ("Saturates " + meal.Saturates.ToString());
             tbSugar.Text = ("Sugar " + meal.Sugar.ToString());
             tbSalt.Text = ("Salt " + meal.Salt.ToString());
-            if(meal.UserSet)
-                imgMeal.Source = new BitmapImage(new Uri("ms-appx:///"+meal.PicPath, UriKind.RelativeOrAbsolute));
+            if (meal.UserSet)
+                imgMeal.Source = new BitmapImage(new Uri("ms-appx:///" + meal.PicPath, UriKind.RelativeOrAbsolute));
             else
             {
-                imgMeal.Source = new BitmapImage(new Uri( meal.PicPath));
+                imgMeal.Source = new BitmapImage(new Uri(meal.PicPath));
             }
 
         }

@@ -118,16 +118,17 @@ namespace MobileAppsProject
                 }
                 this.tbNextMeal.Text = "It is time for your";
                 this.countdown.Text = current + " now!";
-                rectTime.Visibility = Visibility.Visible;
-                rectTimeBG.Visibility = Visibility.Visible;
-                countdown.Visibility = Visibility.Visible;
+                rectTime.Visibility = Visibility.Collapsed;
+                rectTimeBG.Visibility = Visibility.Collapsed;
+                //countdown.Visibility = Visibility.Collapsed;
 
             }
             else
             {
-                rectTime.Visibility = Visibility.Collapsed;
-                rectTimeBG.Visibility = Visibility.Collapsed;
-                countdown.Visibility = Visibility.Collapsed;
+
+                rectTime.Visibility = Visibility.Visible;
+                rectTimeBG.Visibility = Visibility.Visible;
+                countdown.Visibility = Visibility.Visible;
                 updateCountdown();
             }
 

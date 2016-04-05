@@ -1,1 +1,1 @@
-C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\MobileAppsProject.csproj;x64
+C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\MobileAppsProject.csproj;x64

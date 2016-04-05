@@ -41,24 +41,42 @@ namespace MobileAppsProject.Pages
                 }
             };
 
-            List<Eat> eats = new List<Eat> { };
-            List<Day> ds = DayDB.getAll();
-            Day d = DayDB.getDatByDate(dtPicker.Date);
-            eats = EatDB.getByDayID(d.DayID);
-            string text = "";
-            int energy = 0, fat = 0, saturates = 0, sugar = 0, salt = 0;
-            foreach(Eat e in eats)
-            {
-                if (e.Done)
-                {
-                    text += e.Meal.Name + "\n";
-                    energy += e.Meal.Energy;
-                    fat += e.Meal.Fat;
-                    saturates += e.Meal.Saturates;
-                    sugar += e.Meal.Sugar;
-                    salt += e.Meal.Salt;
-                }
+            updateText();
 
+
+        }
+        public void updateText()
+        {
+
+            List<Eat> eats = new List<Eat> { };
+            string text = "";
+
+            Day d = DayDB.getDatByDate(dtPicker.Date);
+            if (d == null)
+            {
+                text = "There is no records for this day";
+                tbDays.MaxLines = 100;
+                tbDays.Text = text;
+
+                return;
+            }
+            eats = EatDB.getByDayID(d.DayID);
+            int energy = 0, fat = 0, saturates = 0, sugar = 0, salt = 0;
+            if (eats != null)
+            {
+                foreach (Eat e in eats)
+                {
+                    if (e.Done && e.Meal != null)
+                    {
+                        text += e.Meal.Name + "\n";
+                        energy += e.Meal.Energy;
+                        fat += e.Meal.Fat;
+                        saturates += e.Meal.Saturates;
+                        sugar += e.Meal.Sugar;
+                        salt += e.Meal.Salt;
+                    }
+
+                }
             }
 
 
@@ -72,6 +90,14 @@ namespace MobileAppsProject.Pages
             tbDays.MaxLines = 100;
             tbDays.Text = text;
 
+        }
+
+
+
+
+        private void dtPicker_DateChanged(object sender, DatePickerValueChangedEventArgs e)
+        {
+            updateText();
         }
     }
 }

@@ -9,16 +9,16 @@
     <SolutionConfiguration>Debug|x64</SolutionConfiguration>
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>8da69756-fe80-44ea-a93a-a1ab3a8462c1</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\obj\x64\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\MobileAppsProject.exe">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\bin\x64\Debug\MobileAppsProject.exe">
       <PackagePath>entrypoint\MobileAppsProject.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
@@ -348,59 +348,59 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UAP\v0.8.0.0\ExtensionSDKs\SQLite.UWP.2015\3.11.1\Redist\Debug\x64\sqlite3.dll">
       <PackagePath>sqlite3.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\meals\example.jpeg">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Assets\meals\example.jpeg">
       <PackagePath>Assets\meals\example.jpeg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\threelines.png">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Assets\threelines.png">
       <PackagePath>Assets\threelines.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\MobileAppsProject.xr.xml">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\bin\x64\Debug\MobileAppsProject.xr.xml">
       <PackagePath>MobileAppsProject.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\lelis\documents\visual studio 2015\Projects\MobileAppsProject\MobileAppsProject\bin\x64\Debug\Core\MobileAppsProject.exe">
+    <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\bin\x64\Debug\Core\MobileAppsProject.exe">
       <PackagePath>MobileAppsProject.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
