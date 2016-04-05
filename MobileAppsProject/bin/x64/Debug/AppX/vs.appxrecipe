@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-04-05T00:31:58.844</Modified>
+      <Modified>2016-04-05T00:50:32.779</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\bin\x64\Debug\MobileAppsProject.exe">
       <PackagePath>entrypoint\MobileAppsProject.exe</PackagePath>
-      <Modified>2016-04-05T00:31:57.212</Modified>
+      <Modified>2016-04-05T00:50:30.300</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -535,7 +535,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\lelis\Documents\GitHub\mobileapps\MobileAppsProject\bin\x64\Debug\Core\MobileAppsProject.exe">
       <PackagePath>MobileAppsProject.exe</PackagePath>
-      <Modified>2016-04-05T00:31:58.827</Modified>
+      <Modified>2016-04-05T00:50:32.728</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

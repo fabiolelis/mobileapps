@@ -66,14 +66,15 @@ namespace MobileAppsProject.Pages
             {
                 foreach (Eat e in eats)
                 {
-                    if (e.Done && e.Meal != null)
+                    Meal meal = MealDB.getAll().Where(m => m.MealID == e.MealID).FirstOrDefault();
+                    if (e != null && e.Done && meal != null)
                     {
-                        text += e.Meal.Name + "\n";
-                        energy += e.Meal.Energy;
-                        fat += e.Meal.Fat;
-                        saturates += e.Meal.Saturates;
-                        sugar += e.Meal.Sugar;
-                        salt += e.Meal.Salt;
+                        text += meal.Name + "\n";
+                        energy += meal.Energy;
+                        fat += meal.Fat;
+                        saturates += meal.Saturates;
+                        sugar += meal.Sugar;
+                        salt += meal.Salt;
                     }
 
                 }

@@ -72,7 +72,7 @@ namespace MobileAppsProject.Pages
                 Eat eat = EatDB.getByDayID(_day.DayID).Where(et => et.Kind == _kind).First() as Eat;
                 eat.Time = DateTime.Now;
                 eat.Done = true;
-                eat.Meal = meal;
+                eat.MealID = meal.MealID;
                 EatDB edb = new EatDB(eat);
                 edb.save();
 
@@ -82,7 +82,7 @@ namespace MobileAppsProject.Pages
                 Eat eat = new Eat();
                 eat.Time = DateTime.Now;
                 eat.Done = true;
-                eat.Meal = meal;
+                eat.MealID = meal.MealID;
                 eat.Kind = "Snack";
                 EatDB edb = new EatDB(eat);
                 edb.save();

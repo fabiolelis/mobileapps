@@ -10,7 +10,7 @@ namespace MobileAppsProject.Models
     class Eat
     {
         private int _eatID;
-        private Meal _meal;
+        private int _mealID;
         private DateTime _time;
         private Boolean _done = false;
         private Boolean _skipped = false;//*mistyped for skipped
@@ -25,18 +25,7 @@ namespace MobileAppsProject.Models
             this.Kind = kind;
         }
 
-        internal Meal Meal
-        {
-            get
-            {
-                return _meal;
-            }
 
-            set
-            {
-                _meal = value;
-            }
-        }
 
         public DateTime Time
         {
@@ -130,6 +119,19 @@ namespace MobileAppsProject.Models
             set
             {
                 _notified = value;
+            }
+        }
+
+        public int MealID
+        {
+            get
+            {
+                return _mealID;
+            }
+
+            set
+            {
+                _mealID = value;
             }
         }
     }
